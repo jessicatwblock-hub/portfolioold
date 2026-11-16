@@ -579,6 +579,48 @@ img,video{max-width:100%;height:auto;}
     margin-inline: auto;
   }
 }
+
+/* Grade de projetos por tema */
+#projetos .project-topic {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+#projetos .project-topic-title {
+  grid-column: 1 / -1;
+}
+@media (max-width: 768px) {
+  #projetos .project-topic {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .35rem;
+  }
+  #projetos .project-item {
+    padding: .35rem;
+    gap: .4rem;
+  }
+  #projetos .project-title {
+    font-size: .8rem;
+    line-height: 1.25;
+  }
+  #projetos .project-badge {
+    display: inline-block;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  #projetos .project-desc,
+  #projetos .project-type {
+    font-size: .7rem;
+    line-height: 1.4;
+  }
+  #projetos .gallery-nav {
+    flex-wrap: wrap;
+    gap: .2rem;
+    max-width: 100%;
+  }
+  #projetos .gallery-nav output {
+    min-width: 0;
+  }
+}
 </style>
 </head>
 <body>
