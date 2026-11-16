@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jessica Block · Portfolio</title>
+<meta name="description" content="Designer Gráfica · Product Owner · Builder. Apps proprietários, design estratégico e produtos digitais com propósito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+
+/* ===== TOKENS — DARK MODE WCAG AAA =====
+   bg #0a0a08  ↔  text #f2efe6  →  ~17.8:1 (AAA)
+   bg #0a0a08  ↔  muted #b9b3a4 →  ~10.4:1 (AAA)
+*/
+:root{
+  --bg:#000000;
+  --bg2:#0f0f0f;
+  --surface:#1a1a1a;
+  --surface-2:#242424;
+  --border:rgba(201,169,110,0.15);
+  --border-md:rgba(201,169,110,0.25);
+  --text:#f5f5f0;
+  --muted:#a8a8a0;
+  --accent:#C9A96E;
+  --accent2:#C9A96E;
+  --nav-bg:rgba(0,0,0,0.98);
+  --mono:'DM Mono',monospace;
+  --sans:'DM Sans',sans-serif;
+  --serif:'Playfair Display',serif;
+  --r-sm:6px;--r-md:12px;--r-lg:20px;
+}
+
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.7;font-size:16px;overflow-x:hidden;padding-bottom:60px;-webkit-font-smoothing:antialiased;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px;}
+.skip-link{position:absolute;top:-100%;left:1rem;background:var(--accent);color:var(--bg);padding:.5rem 1rem;font-family:var(--mono);font-size:12px;border-radius:var(--r-sm);text-decoration:none;z-index:9999;transition:top .2s;}
+.skip-link:focus{top:1rem;}
+
+/* NAV */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:.9rem 2.5rem;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);min-height:56px;}
+.nav-logo{font-family:var(--serif);font-size:16px;font-style:italic;color:var(--text);text-decoration:none;flex-shrink:0;white-space:nowrap;}
+.nav-links{display:flex;gap:1.5rem;list-style:none;flex-shrink:0;}
+.nav-links a{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:rgba(242,239,230,0.65);text-decoration:none;text-transform:uppercase;transition:color .2s;padding:4px 0;white-space:nowrap;}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--text);}
+
+/* HERO */
+.hero{position:relative;min-height:auto;display:grid;grid-template-columns:minmax(280px,340px) minmax(0,520px);align-items:center;justify-content:center;border-bottom:1px solid var(--border);overflow:hidden;padding:6rem 3rem;column-gap:clamp(2rem,5vw,4.5rem);}
+.hero-photo{position:relative;width:100%;max-width:340px;justify-self:end;aspect-ratio:3/4;border-radius:12px;overflow:hidden;border:1px solid var(--border);}
+.hero-photo img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;background:linear-gradient(135deg, rgba(201,169,110,0.1) 0%, transparent 100%);}
+.hero-photo-fade{display:none;}
+.hero-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;max-width:520px;min-width:0;}
+.hero-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;margin-bottom:2rem;opacity:0;animation:fadeUp .7s .2s ease forwards;}
+.hero-name{font-family:var(--serif);font-size:clamp(3.5rem,8vw,8rem);line-height:.95;font-weight:700;letter-spacing:-.02em;opacity:0;animation:fadeUp .7s .4s ease forwards;}
+.hero-name em{font-style:italic;color:var(--accent);}
+.hero-tagline{margin-top:2rem;max-width:440px;font-size:clamp(14px,1.4vw,15px);color:var(--muted);line-height:1.85;opacity:0;animation:fadeUp .7s .6s ease forwards;}
+.hero-actions{margin-top:2.5rem;display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeUp .7s .8s ease forwards;}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:11px 22px;border-radius:var(--r-sm);transition:background .2s,color .2s,border-color .2s,transform .2s;border:1px solid var(--border-md);color:var(--text);background:transparent;}
+.hero-btn:hover{border-color:var(--accent);color:var(--accent);}
+.hero-btn.primary{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:500;}
+.hero-btn.primary:hover{background:var(--text);border-color:var(--text);color:var(--bg);}
+.hero-badges{margin-top:2.75rem;display:flex;gap:8px;flex-wrap:wrap;opacity:0;animation:fadeUp .7s 1s ease forwards;}
+.hero-badge{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border-md);padding:5px 12px;border-radius:20px;}
+
+/* NUMBERS — clicáveis, ancoradas */
+.numbers-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.number-card{background:var(--bg);padding:2.5rem 2rem;text-align:center;text-decoration:none;color:inherit;transition:background .25s ease,transform .25s ease;display:block;cursor:pointer;}
+.number-card:hover,.number-card:focus-visible{background:var(--bg2);}
+.number-card:hover .number-value{color:var(--text);}
+.number-value{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3rem);font-weight:700;color:var(--accent);line-height:1;margin-bottom:.5rem;transition:color .25s ease;}
+.number-value .arrow{font-size:.75em;color:var(--accent2);font-weight:400;letter-spacing:.05em;}
+.number-label{font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;line-height:1.6;}
+
+/* SECTIONS */
+section{scroll-margin-top:64px;padding:5rem 3rem;border-bottom:1px solid var(--border);position:relative;}
+.section-label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--accent2);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;}
+.section-label::after{content:'';width:48px;height:1px;background:var(--border-md);}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;line-height:1.15;margin-bottom:1.25rem;}
+.section-title em{font-style:italic;color:var(--accent);}
+
+/* CONTAINER & GRID SYSTEM */
+.container{max-width:1400px;margin:0 auto;padding:0 3rem;}
+.grid-12{display:grid;grid-template-columns:repeat(12,1fr);gap:2.5rem;align-items:start;}
+
+/* ABOUT — SECTION GRID */
+.about-grid{
+  display:grid !important;
+  grid-template-columns:320px 1fr !important;
+  gap:3.5rem !important;
+  align-items:start !important;
+  margin-top:1.5rem !important;
+}
+
+.about-video{
+  width:100%;
+  aspect-ratio:9/16;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:var(--surface);
+}
+
+.about-video iframe{
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  border:none !important;
+}
+
+.about-text{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:1.5rem !important;
+}
+
+.about-text p{
+  color:var(--muted) !important;
+  font-size:15px !important;
+  line-height:1.85 !important;
+  margin:0 !important;
+}
+
+.about-text p strong{
+  color:var(--text);
+  font-weight:600;
+}
+
+/* PROJECTS */
+.projects-section{padding-bottom:0;border-bottom:none;}
+.projects-header{max-width:760px;}
+.projects-intro{font-size:15px;color:var(--muted);max-width:520px;margin-bottom:2.5rem;line-height:1.8;}
+/* GALERIA HORIZONTAL — scroll snap, sem barras feias */
+.projects-gallery{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;
+  padding:1.5rem 0 2rem;
+}
+
+
+
+
+/* Contador de projetos */
+.projects-counter{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:2rem;
+}
+.projects-counter-dots{
+  display:flex;gap:6px;
+}
+.projects-counter-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--border-md);
+  transition:background .25s,transform .25s;
+}
+.projects-counter-dot.active{
+  background:var(--accent);
+  transform:scale(1.3);
+}
+.projects-counter-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;color:var(--muted);
+  text-transform:uppercase;
+}
+/* Card de cada projeto: mockup em cima + infos embaixo, largura fixa */
+.project-item{
+
+
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+  padding:2rem;
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  background:linear-gradient(180deg,var(--surface) 0%,transparent 100%);
+  position:relative;
+  transition:border-color .3s,transform .3s;
+}
+.project-item:hover{border-color:var(--border-md);transform:translateY(-4px);}
+/* Anular antigo .reverse — agora todos têm mockup em cima */
+.project-item.reverse{display:flex;flex-direction:column;}
+/* Mockup sempre no topo do card */
+.project-mockup,.project-item.reverse .project-mockup{display:flex;justify-content:center;align-items:center;order:-1;}
+/* Texto do card */
+.project-item > div:not(.project-mockup){display:flex;flex-direction:column;}
+.project-index{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--accent2);margin-bottom:1rem;text-transform:uppercase;}
+.project-title{font-family:var(--serif);font-size:clamp(1.5rem,2.2vw,1.85rem);font-weight:400;line-height:1.15;margin-bottom:.4rem;color:var(--text);}
+.project-type{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--accent2);text-transform:uppercase;margin-bottom:1rem;}
+.project-desc{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:1.25rem;max-width:100%;}
+.project-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:1.25rem;margin-bottom:1.75rem;}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);border:1px solid var(--border-md);padding:4px 10px;border-radius:var(--r-sm);background:transparent;}
+.project-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent2);padding-bottom:3px;transition:color .2s,border-color .2s;}
+.project-cta:hover{color:var(--text);border-color:var(--text);}
+.project-copyright{font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--muted);opacity:.45;margin-top:.6rem;}
+.project-badge{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-left:10px;vertical-align:middle;font-weight:400;}
+.badge-sub{background:rgba(212,195,154,.12);color:var(--accent);border:1px solid rgba(212,195,154,.3);}
+.badge-free{background:rgba(127,200,127,.1);color:#9ed99e;border:1px solid rgba(127,200,127,.25);}
+.badge-demo{background:rgba(180,140,200,.12);color:#c8a6d8;border:1px solid rgba(180,140,200,.3);}
+.badge-corporate{background:rgba(201,169,110,.15);color:var(--accent);border:1px solid rgba(201,169,110,.3);}
+
+/* MOCKUP — iPhone 17 Pro Max frame (aspect 19.5:9), com status bar e Dynamic Island */
+.project-mockup{display:flex;justify-content:center;align-items:center;}
+.mockup-wrap{display:flex;flex-direction:column;align-items:center;gap:1.5rem;}
+.device{
+  position:relative;
+  width:200px;
+  height:433px;
+  border-radius:36px;
+  background:linear-gradient(145deg,#1a1a1a 0%,#2a2a2a 50%,#1a1a1a 100%);
+  padding:5px;
+  box-shadow:
+    0 0 0 1.5px rgba(255,255,255,.08),
+    inset 0 0 0 1px rgba(255,255,255,.04),
+    0 16px 40px rgba(0,0,0,.45);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1);
+  flex-shrink:0;
+}
+.mockup-wrap:hover .device{transform:translateY(-6px);}
+.device-screen{
+  position:relative;
+  width:100%;height:100%;
+  border-radius:31px;
+  overflow:hidden;
+  background:#0a0a08;
+}
+/* Status bar do iOS (renderizada via CSS, sempre visível sobre os slides) */
+.device-statusbar{
+  position:absolute;
+  top:0;left:0;right:0;
+  height:24px;
+  z-index:5;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 14px;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;
+  font-size:9px;
+  font-weight:600;
+  color:#fff;
+  pointer-events:none;
+}
+.device-statusbar-time{
+  letter-spacing:-.2px;
+  z-index:6;
+  padding-left:2px;
+}
+.device-statusbar-icons{
+  display:flex;align-items:center;gap:3px;
+  z-index:6;
+  padding-right:2px;
+}
+.device-statusbar-icons svg{display:block;}
+/* Dynamic Island */
+.device-island{
+  position:absolute;
+  top:6px;left:50%;transform:translateX(-50%);
+  width:60px;height:16px;
+  background:#000;
+  border-radius:10px;
+  z-index:7;
+  box-shadow:inset 0 0 0 .5px rgba(255,255,255,.04);
+}
+/* Slides preenchem a área útil da tela, sem faixa preta inferior */
+.device-slides{
+  position:absolute;
+  inset:24px 0 0;
+  overflow:hidden;
+  box-sizing:border-box;
+}
+.device-slide{
+  display:none;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  opacity:0;
+  transition:opacity .15s ease;
+}
+.device-slide.active{display:block;opacity:1;}
+.device-slide img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+}
+/* Projetos 10–13: screenshots 818×1598, proporção preservada sem crop/esticamento */
+.device.device-portrait{height:auto;aspect-ratio:200 / 405;}
+.device-portrait .device-slide img{object-fit:contain;object-position:center;}
+/* EXPERIENCE — espaços generosos, divisórias, chips */
+.exp-list{display:flex;flex-direction:column;margin-top:3rem;}
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:3rem;padding:2.75rem 0 3rem;border-bottom:1px solid var(--border);align-items:start;}
+.exp-item:first-child{border-top:1px solid var(--border);}
+.exp-item:last-child{border-bottom:none;}
+.exp-meta{display:flex;flex-direction:column;gap:.4rem;}
+.exp-period{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent2);}
+.exp-company{font-size:13px;color:var(--muted);}
+.exp-role{font-family:var(--serif);font-size:1.15rem;font-weight:400;margin-bottom:.6rem;line-height:1.3;color:var(--text);}
+.exp-subtitle{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--accent2);margin-bottom:1.5rem;}
+.exp-clients{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.75rem;}
+.exp-client{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:5px 9px;border-radius:var(--r-sm);}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+.exp-bullets li{font-size:14px;color:var(--muted);padding-left:1.2rem;position:relative;line-height:1.7;}
+.exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--accent2);}
+.exp-bullets li strong{color:var(--text);font-weight:500;}
+.exp-bullets li a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent2);transition:color .2s,border-color .2s;}
+.exp-bullets li a:hover{color:var(--text);border-color:var(--text);}
+.exp-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:2rem;}
+.exp-chip{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--accent);background:rgba(212,195,154,.07);border:1px solid rgba(212,195,154,.22);padding:5px 11px;border-radius:20px;}
+
+/* FORMACAO + CERTIFICACOES */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:5rem;}
+.cert-row{display:flex;justify-content:space-between;align-items:center;padding:.95rem 0;border-bottom:1px solid var(--border);gap:1rem;}
+.cert-row:first-child{border-top:1px solid var(--border);}
+.cert-name{font-family:var(--mono);font-size:12px;color:var(--muted);}
+.cert-name .em-tag{font-size:9px;color:var(--accent);margin-left:8px;letter-spacing:.12em;font-weight:500;border:1px solid rgba(212,195,154,.3);padding:2px 7px;border-radius:3px;background:rgba(212,195,154,.06);}
+.cert-year{font-family:var(--mono);font-size:10px;color:var(--accent2);border:1px solid var(--border-md);padding:3px 9px;border-radius:var(--r-sm);flex-shrink:0;}
+
+/* STICKY BAR */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;display:flex;justify-content:center;align-items:center;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border-md);height:52px;}
+.sticky-bar a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text);text-decoration:none;transition:color .2s,background .2s,opacity .2s;padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:center;gap:8px;border-right:1px solid var(--border);white-space:nowrap;opacity:.7;}
+.sticky-bar a:last-child{border-right:none;}
+.sticky-bar a:hover{color:var(--accent);opacity:1;}
+.bar-icon{flex-shrink:0;}
+
+/* FOOTER */
+footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+footer span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;opacity:.7;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+
+/* Proteção global: nada fura o viewport */
+html,body{overflow-x:hidden;max-width:100%;}
+img,video{max-width:100%;height:auto;}
+
+/* Items grid precisam de min-width:0 para que filhos com overflow-x funcionem */
+.project-item > *{min-width:0;}
+.exp-item > *{min-width:0;}
+
+@media(max-width:768px){
+  .site-header{padding:.9rem 1.25rem;}
+  .nav-links{display:none;}
+  .hero{flex-direction:column;align-items:stretch;min-height:auto;padding-top:56px;}
+  .hero-photo{position:relative;width:100%;height:auto;top:auto;right:auto;bottom:auto;left:auto;max-width:none;}
+  .hero-photo img{width:100%;height:auto;max-height:none;object-fit:contain;object-position:center top;display:block;}
+  .hero-photo-fade{background:linear-gradient(to top,var(--bg) 0%,transparent 40%);}
+  .hero-content{position:relative;z-index:2;padding:0 1.25rem 5rem;max-width:none;margin-top:-4rem;}
+  .hero-name{font-size:clamp(2.4rem,11vw,5rem);}
+  .hero-tagline{max-width:none;font-size:14px;}
+  .hero-actions{flex-direction:column;}
+  .hero-btn{justify-content:center;text-align:center;}
+  .hero-badge{font-size:9px;padding:4px 10px;}
+  .hero-badges{padding-bottom:1rem;gap:6px;}
+  section{padding:4rem 1.25rem;}
+  .section-title{font-size:clamp(1.6rem,6vw,2.4rem);}
+  .section-label{font-size:9px;}
+  .about-text p{font-size:14px;}
+  /* Mobile: scroll horizontal */
+  .projects-gallery{
+    display:flex;flex-direction:row;
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding:0 1.25rem 1.5rem;
+    margin:0 -1.25rem;
+    gap:1.25rem;
+  }
+  .projects-gallery::-webkit-scrollbar{display:none;}
+  /* Anula nth-child do grid no mobile */
+  .projects-gallery.has-7 .project-item:nth-child(5){grid-column:auto;}
+  .project-item{flex:0 0 85vw;width:85vw;max-width:340px;padding:1.5rem;}
+  .projects-counter{display:none;}
+  .project-title{font-size:1.5rem;}
+  .project-desc{font-size:13.5px;}
+  .project-badge{margin-left:6px;font-size:8px;padding:3px 8px;}
+  /* Mockup centraliza e respeita largura do viewport */
+  .project-mockup{width:100%;}
+  .device{width:min(200px,calc(100vw - 6rem));height:auto;aspect-ratio:200/433;}
+  .numbers-strip{grid-template-columns:repeat(2,1fr);}
+  .number-card{padding:1.75rem 1rem;}
+  .number-value{font-size:clamp(2rem,7vw,2.6rem);}
+  .number-label{font-size:9px;}
+  .exp-list{margin-top:2rem;}
+  .exp-item{grid-template-columns:1fr;gap:1rem;padding:2.25rem 0 2.5rem;}
+  .exp-role{font-size:1.05rem;}
+  /* Em mobile: empresas escondidas + tags quebram naturalmente */
+  .exp-client.mobile-hidden{display:none;}
+  .exp-clients{margin-bottom:1.5rem;}
+  /* Skills chips quebra normalmente (poucos chips) */
+  .exp-chips{margin-top:1.5rem;}
+  .exp-bullets li{font-size:13.5px;}
+  .form-grid{grid-template-columns:1fr;gap:2.5rem;margin-top:3rem;}
+  .cert-name{font-size:11px;}
+  footer{padding:1.5rem 1.25rem;font-size:9px;}
+  .sticky-bar{justify-content:space-around;}
+  .sticky-bar a{padding:0;flex:1;border-right:none;justify-content:center;gap:0;}
+  .sticky-bar .bar-label{display:none;}
+  .bar-icon{width:18px;height:18px;}
+}
+@media(max-width:420px){
+  /* iPhone SE / telas bem estreitas */
+  section{padding:3rem 1rem;}
+  .hero-content{padding:0 1rem 4rem;}
+  .number-card{padding:1.5rem .6rem;}
+  .number-value{font-size:1.9rem;}
+  .number-label{font-size:8.5px;letter-spacing:.1em;}
+}
+
+/* Badge Em captação */
+.badge-cap{background:rgba(201,169,110,.12);color:#c9a96e;border:1px solid rgba(201,169,110,.35);}
+
+/* ════════════════════════════════════════════════════════════════ */
+/* MELHORIAS UX — GRID PROFISSIONAL 2024 */
+/* ════════════════════════════════════════════════════════════════ */
+
+/* ABOUT — 2 COLUNAS GRID */
+.about-grid{
+  display:grid !important;
+  grid-template-columns:320px 1fr !important;
+  gap:3.5rem !important;
+  align-items:start !important;
+  margin-top:1.5rem !important;
+}
+
+.about-video{
+  width:100%;
+  aspect-ratio:9/16;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:var(--surface);
+}
+
+.about-video iframe{
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  border:none !important;
+}
+
+.about-text{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:1.5rem !important;
+}
+
+.about-text p{
+  color:var(--muted) !important;
+  font-size:15px !important;
+  line-height:1.85 !important;
+  margin:0 !important;
+}
+
+/* PROJECTS — 4 COLUNAS GRID */
+.projects-gallery{display:grid !important;grid-template-columns:repeat(4,1fr) !important;gap:2rem !important;padding:2rem 0 !important;margin-top:2rem !important;}
+.project-item{background:var(--surface) !important;border:1px solid var(--border) !important;border-radius:12px !important;transition:all .3s !important;}
+.project-item:hover{border-color:var(--accent) !important;background:var(--surface-2) !important;}
+
+/* EXPERIENCE — 2 COLUNAS GRID */
+.exp-item{display:grid !important;grid-template-columns:200px 1fr !important;gap:3rem !important;padding:2.75rem 0 3rem !important;border-bottom:1px solid var(--border) !important;}
+.exp-item:first-child{border-top:1px solid var(--border) !important;}
+
+/* RESPONSIVE — 1440px */
+@media(max-width:1440px){.projects-gallery{grid-template-columns:repeat(3,1fr) !important;gap:1.5rem !important;}.about-grid{gap:3rem !important;}}
+
+/* RESPONSIVE — 1024px */
+@media(max-width:1024px){
+  .about-grid{
+    grid-template-columns:1fr !important;
+    gap:3rem !important;
+  }
+  .projects-gallery{
+    grid-template-columns:repeat(2,1fr) !important;
+    gap:1.5rem !important;
+  }
+  .exp-item{
+    grid-template-columns:150px 1fr !important;
+    gap:2rem !important;
+  }
+}
+
+/* RESPONSIVE — 768px (TABLET) */
+@media(max-width:768px){
+  .hero{
+    flex-direction:column;
+    padding:3rem 1.5rem;
+    gap:2rem;
+  }
+  .hero-photo{
+    width:100%;
+    max-width:300px;
+  }
+  .hero-content{
+    width:100%;
+  }
+  .about-grid{
+    grid-template-columns:1fr !important;
+  }
+  .projects-gallery{
+    grid-template-columns:1fr !important;
+    gap:1.5rem !important;
+  }
+  .exp-item{
+    grid-template-columns:1fr !important;
+    gap:1.5rem !important;
+    padding:1.5rem !important;
+    background:var(--surface) !important;
+    border-radius:12px !important;
+    border:1px solid var(--border) !important;
+  }
+}
+
+/* RESPONSIVE — 480px */
+@media(max-width:480px){.projects-gallery{grid-template-columns:1fr !important;}}
+
+@media(max-width:768px){.device.device-portrait{height:auto;aspect-ratio:200 / 405;}}
+
+/* Responsive layout: keep every column within its available width. */
+.hero > *, .about-grid > *, .projects-gallery > *, .form-grid > * {min-width:0;}
+.projects-gallery {grid-template-columns:repeat(4,minmax(0,1fr)) !important;}
+.project-item {min-width:0;width:auto;max-width:none;}
+.project-title,.project-desc,.exp-bullets,.cert-name {overflow-wrap:anywhere;}
+@media(max-width:1440px){
+  .projects-gallery {grid-template-columns:repeat(3,minmax(0,1fr)) !important;}
+}
+@media(max-width:1100px){
+  .projects-gallery {grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+}
+@media(max-width:768px){
+  .hero {grid-template-columns:minmax(0,1fr);padding:5.5rem 1.25rem 3rem;gap:2rem;}
+  .hero-photo {justify-self:center;max-width:280px;aspect-ratio:3/4;}
+  .hero-photo img {height:100%;object-fit:contain;}
+  .hero-content {margin-top:0;padding:0;max-width:520px;justify-self:center;}
+  .hero-eyebrow {font-size:10px;letter-spacing:.12em;margin-bottom:1.25rem;}
+  .hero-name {font-size:clamp(2.8rem,12vw,4.5rem);}
+  .hero-tagline {margin-top:1.5rem;}
+  .hero-actions {margin-top:1.5rem;}
+  .hero-badges {margin-top:1.5rem;padding-bottom:0;}
+  .about-grid {grid-template-columns:minmax(0,1fr) !important;gap:2rem !important;}
+  .about-video {max-width:320px;justify-self:center;}
+  .about-text p {font-size:14px !important;}
+  .projects-gallery {grid-template-columns:minmax(0,1fr) !important;margin:1.5rem 0 0 !important;padding:0 0 2rem !important;overflow:visible;scroll-snap-type:none;gap:1.5rem !important;}
+  .project-item {width:100%;max-width:none;flex:auto;padding:1.5rem;gap:1.5rem;}
+  .project-item:hover {transform:none;}
+  .device {width:200px;max-width:100%;height:auto;aspect-ratio:200/433;}
+  .project-badge {margin-left:0;margin-top:.5rem;display:table;}
+  .exp-list {gap:1rem;}
+  .exp-item {grid-template-columns:minmax(0,1fr) !important;}
+  .form-grid {grid-template-columns:minmax(0,1fr);}
+  .cert-row {align-items:flex-start;}
+  .hero-btn,.sticky-bar a {min-height:44px;}
+  .sticky-bar {height:calc(52px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);}
+  body {padding-bottom:calc(60px + env(safe-area-inset-bottom));}
+}
+
+
+.flat-wrap{width:100%;gap:.6rem}.flat-gallery{position:relative;inset:auto;width:100%;aspect-ratio:var(--image-ratio);background:var(--surface);border-radius:12px;overflow:hidden}
+.device-slides .device-slide{display:block;opacity:0;transition:opacity .42s ease;pointer-events:none}.device-slides .device-slide.active{opacity:1;pointer-events:auto}.flat-gallery .device-slide img{width:100%;height:100%;object-fit:contain;object-position:center}
+.gallery-nav{display:flex;align-items:center;justify-content:center;gap:.8rem;margin:.45rem auto 0;color:var(--text)}.gallery-nav button{background:transparent;border:1px solid var(--border-md);color:var(--text);border-radius:100%;width:44px;height:44px;cursor:pointer}.gallery-nav output{min-width:3.8rem;text-align:center;font:12px var(--mono)}@media(prefers-reduced-motion:reduce){.device-slides .device-slide{transition:none}}
+.gallery-nav .gallery-play{width:auto;padding:0 .85rem;border-radius:2rem;font:12px var(--sans)}
+
+#projetos.projects-section{width:100%;max-width:none}
+#projetos .projects-gallery{grid-template-columns:minmax(0,1fr)!important}
+#projetos .project-item{width:100%;max-width:none;min-width:0}
+#projetos .project-mockup,#projetos .flat-wrap,#projetos .flat-gallery{width:100%;max-width:none}
+#projetos .flat-gallery .device-slide img{object-fit:contain;object-position:center}
+.project-topics{display:flex;flex-wrap:wrap;gap:.5rem}.project-topics a{display:inline-flex;align-items:center;min-height:44px;padding:.35rem .8rem;border:1px solid var(--border-md);border-radius:1.5rem;color:var(--text);text-decoration:none}.project-topics a:hover,.project-topics a:focus-visible{border-color:var(--accent)}.project-topic{display:grid;min-width:0;gap:1.4rem;scroll-margin-top:6rem}.project-topic-title{font:600 clamp(1.4rem,3vw,2rem) var(--sans);margin:1.5rem 0 0;color:var(--text)}.project-editorial-cover{display:block;width:100%;height:auto;border-radius:12px}</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Ir para o conteúdo principal</a>
+
+<nav class="site-header" aria-label="Navegação principal">
+  <a href="#" class="nav-logo">Jessica Block</a>
+  <ul class="nav-links" role="list">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="main">
+  <div class="hero-photo" aria-hidden="true">
+    <img src="assets/jessica-block-retrato.jpg" alt="" loading="eager" />
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">✦ Designer · Product Owner · Builder</p>
+    <h1 class="hero-name">Jessica<br><em>Block.</em></h1>
+    <p class="hero-tagline">Design, produto e tecnologia com propósito. No cruzamento entre clareza visual, gestão de produto e construção de ferramentas digitais, há mais de 15 anos.</p>
+    <div class="hero-actions">
+      <a href="#projetos" class="hero-btn primary">Ver projetos</a>
+      <a href="mailto:jessicatwblock@gmail.com" class="hero-btn">Entrar em contato</a>
+    </div>
+    <div class="hero-badges">
+      <span class="hero-badge">Uberlândia, MG</span>
+      <span class="hero-badge">Remoto</span>
+      <span class="hero-badge">Brasil · Europa · EUA</span>
+    </div>
+  </div>
+</header>
+
+<!-- NUMBERS — clicáveis, com âncora -->
+<div class="numbers-strip" role="list" aria-label="Números de impacto">
+  <a href="#experiencia" class="number-card reveal" role="listitem" aria-label="15+ anos de experiência — ir para Experiência">
+    <div class="number-value">15<span class="arrow">+</span></div>
+    <div class="number-label">Anos de<br>experiência</div>
+  </a>
+  <a href="#exp-dialog" class="number-card reveal" role="listitem" aria-label="70% de adoção do Power AI Creator em 3 meses na Dialog — ir para experiência Dialog">
+    <div class="number-value">70<span class="arrow">%</span></div>
+    <div class="number-label">Adoção do<br>Power AI Creator</div>
+  </a>
+  <a href="#exp-dialog" class="number-card reveal" role="listitem" aria-label="85% de redução de backlog na Dialog — ir para experiência Dialog">
+    <div class="number-value">85<span class="arrow">%</span></div>
+    <div class="number-label">Redução de<br>backlog (264 → 40)</div>
+  </a>
+  <a href="#exp-prismafs" class="number-card reveal" role="listitem" aria-label="360+ roteiros educacionais na PrismaFS — ir para experiência PrismaFS">
+    <div class="number-value">360<span class="arrow">+</span></div>
+    <div class="number-label">Roteiros<br>educacionais</div>
+  </a>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre" aria-labelledby="sobre-title">
+  <div class="section-label" aria-hidden="true">01 / Sobre</div>
+  <div class="about-grid">
+    <div class="about-video">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/BaQXm7XMDn4?modestbranding=1" title="Jessica Block - Apresentação" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="about-text">
+      <h2 class="section-title" id="sobre-title">Design com <em>intenção</em>.<br>Produto com propósito.</h2>
+      <p>Sou Product Manager, Product Owner, Builder, Designer Instrucional e Graphic Designer. Trabalho com experiência em EdTech, SaaS B2B e produtos digitais. Tenho uma mentalidade estratégica focada em comunicação visual, gestão de produto e construção de ferramentas com IA.</p>
+      <p>Tenho interesse particular em produtos voltados à saúde mental e neurodivergência, área em que criei a Neuro Lens, app proprietário de triagem para TEA e TDAH baseado no DSM-5, desenvolvido por mim do zero.</p>
+      <p>Tenho mais de 15 anos entre design gráfico, design instrucional, EdTech e gestão de produto. Na Dialog, fui <strong>Coordenadora da Área de Produtos Digitais e Product Owner simultaneamente</strong>, liderando equipe e cuidando do operacional do produto ao mesmo tempo, em uma plataforma SaaS B2B com IA. Atuei por anos como Designer Instrucional criando programas educacionais para empresas como Itaú-Unibanco, Nestlé e Bayer.</p>
+      <p>Uso IA como ferramenta de criação e construção. Os projetos abaixo são apps proprietários que concebi, desenhei e desenvolvi por completo, do zero.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETOS -->
+<section id="projetos" class="projects-section" aria-labelledby="projetos-title">
+  <div class="projects-header">
+    <div class="section-label" aria-hidden="true">02 / Projetos</div>
+    <h2 class="section-title" id="projetos-title">Projetos que <em>criei</em>.</h2>
+    <p class="projects-intro">68 projetos de concepção, design, produto e desenvolvimento, incluindo casos corporativos anonimizados. A coleção reúne apps, narrativas interativas, portfólios profissionais e ferramentas digitais com acesso gratuito, demo ou assinatura.</p>
+  </div>
+
+  <div class="projects-counter" aria-hidden="true">
+    <div class="projects-counter-dots"><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div><div class="projects-counter-dot active"></div></div>
+    <span class="projects-counter-label">68 projetos</span>
+  </div>
+  <div class="projects-gallery" role="region" aria-label="Galeria de projetos">
+
+
+
+
+  <!-- 02 NEURO LENS -->
+  <nav class="project-topics" aria-label="Temas dos projetos"><a href="#tema-web">Sites e produtos digitais</a><a href="#tema-marcas">Marcas, campanhas e audiovisual</a><a href="#tema-narrativas">Jogos e narrativas interativas</a><a href="#tema-tecnologia">Produtos de tecnologia e go-to-market</a><a href="#tema-aprendizagem">Aprendizagem e carreira</a><a href="#tema-arquitetura">Arquitetura e interiores</a><a href="#tema-gastronomia">Gastronomia</a><a href="#tema-bem-estar">Saúde, bem-estar e planejamento</a></nav><section class="project-topic" id="tema-web" aria-labelledby="tema-web-titulo"><h3 id="tema-web-titulo" class="project-topic-title">Sites e produtos digitais</h3><article class="project-item reveal" aria-labelledby="added-11"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1348 / 926"><div class="device-slide active"><img src="assets/estacao-interface-01.webp" width="1348" height="926" alt="Estação Tintas · tela publicada 1" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-interface-03.webp" width="1348" height="926" alt="Estação Tintas · tela publicada 3" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-interface-04.webp" width="1348" height="926" alt="Estação Tintas · tela publicada 4" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-interface-05.webp" width="1348" height="926" alt="Estação Tintas · tela publicada 5" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-interface-07.webp" width="1348" height="926" alt="Estação Tintas · tela publicada 7" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-11">Estação Tintas</h3><div class="project-type">Marca · Site · Apresentação</div><p class="project-desc">Criação da pesquisa, o posicionamento, a estratégia de marca e a direção de arte. Desenvolvimento do site com simulador, paleta interativa e galeria de projetos, além do guia de marca e acabamentos e da apresentação de defesa.</p></div></article><article class="project-item reveal" aria-labelledby="proj10-title">
+    <div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" id="exacta-slides" style="--image-ratio:818 / 1598"><div class="device-slide active"><img src="exacta_1.jpeg" width="818" height="1598" alt="Tela real do Exacta, controle de despesas" loading="lazy"></div><div class="device-slide"><img src="exacta_2.jpeg" width="818" height="1598" alt="Tela real do Exacta" loading="lazy"></div><div class="device-slide"><img src="exacta_3.jpeg" width="818" height="1598" alt="Tela real do Exacta" loading="lazy"></div><div class="device-slide"><img src="exacta_4.jpeg" width="818" height="1598" alt="Tela real do Exacta" loading="lazy"></div><div class="device-slide"><img src="assets/exacta-demonstrativo.webp" width="906" height="1493" alt="Demonstrativo da ferramenta de despesas" loading="lazy"></div></div>
+      </div></div><div>
+
+      <h3 class="project-title" id="proj10-title">Exacta <span class="project-badge badge-sub">Assinatura</span></h3>
+      <div class="project-type">Gestão financeira · Despesas de equipe · Produto digital</div>
+      <p class="project-desc">Desenvolvido em coautoria. A solução registra despesas de equipes, filtra lançamentos por pessoa, período e categoria e gera demonstrativos mensais em PDF. O projeto inclui a aplicação e a página de apresentação comercial.</p>
+      <div class="project-tags"><span class="tag">Finanças</span><span class="tag">Gestão</span><span class="tag">PDF</span><span class="tag">Offline</span><span class="tag">UX</span></div>
+      <a href="https://fecha-despesas.jtwb1988.chatgpt.site/" class="project-cta" target="_blank" rel="noopener noreferrer">Acessar projeto ↗</a>
+
+    <a href="assets/exacta-apresentacao.webp" class="project-cta">Ver tela de apresentação ↗</a></div>
+  </article><article class="project-item reveal" aria-labelledby="proj13-title">
+    <div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" id="varandas-slides" style="--image-ratio:818 / 1598">
+          <div class="device-slide active"><img src="varandas_1.jpeg" alt="Tela inicial real do Varandas, restaurante e camping na Serra da Canastra" loading="lazy" width="818" height="1598"></div>
+          <div class="device-slide"><img src="varandas_3.jpeg" alt="Tela real do site Varandas" loading="lazy" width="818" height="1598"></div>
+          <div class="device-slide"><img src="varandas_4.jpeg" alt="Tela real do site Varandas" loading="lazy" width="818" height="1598"></div>
+          <div class="device-slide"><img src="varandas_5.jpeg" alt="Tela real do site Varandas" loading="lazy" width="818" height="1598"></div>
+          <div class="device-slide"><img src="varandas_6.jpeg" alt="Tela real do site Varandas" loading="lazy" width="818" height="1598"></div>
+        </div>
+      </div></div><div>
+
+      <h3 class="project-title" id="proj13-title">Varandas <span class="project-badge badge-demo">Site</span></h3>
+      <div class="project-type">Gastronomia · Turismo · Experiências na Serra da Canastra</div>
+      <p class="project-desc">Site experiencial para o Varandas, restaurante e camping em Delfinópolis, Minas Gerais. Apresenta comida mineira, hospedagem, roteiros pela Serra da Canastra e eventos com uma narrativa acolhedora, visual editorial e conversão direta pelo WhatsApp.</p>
+      <div class="project-tags"><span class="tag">Restaurante</span><span class="tag">Camping</span><span class="tag">Turismo</span><span class="tag">Serra da Canastra</span><span class="tag">Eventos</span></div>
+      <a href="https://varandasrvc-ctzwm86s.manus.space/" class="project-cta" target="_blank" rel="noopener noreferrer">Acessar projeto ↗</a>
+
+    </div>
+  </article><article class="project-item reveal" aria-labelledby="proj11-title">
+    <div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" id="paulo-slides" style="--image-ratio:818 / 1598"><div class="device-slide active"><img src="paulo_1.jpeg" alt="Tela real do portfólio de Paulo Otávio" loading="lazy" width="818" height="1598"></div><div class="device-slide"><img src="paulo_2.jpeg" alt="Tela real do portfólio de Paulo Otávio" loading="lazy" width="818" height="1598"></div><div class="device-slide"><img src="paulo_3.jpeg" alt="Tela real do portfólio de Paulo Otávio" loading="lazy" width="818" height="1598"></div><div class="device-slide"><img src="paulo_4.jpeg" alt="Tela real do portfólio de Paulo Otávio" loading="lazy" width="818" height="1598"></div><div class="device-slide"><img src="paulo_5.jpeg" alt="Tela real do portfólio de Paulo Otávio" loading="lazy" width="818" height="1598"></div></div>
+      </div></div><div>
+
+      <h3 class="project-title" id="proj11-title">Paulo Otávio <span class="project-badge badge-demo">Portfólio</span></h3>
+      <div class="project-type">Portfólio profissional · Tecnologia · Dados · Processos</div>
+      <p class="project-desc">Portfólio profissional para apresentar a trajetória de Paulo Otávio em tecnologia, controle de qualidade, pesquisa científica, atendimento e logística. Uma narrativa visual que transforma experiências diversas em repertório prático para a entrada na área de Sistemas de Informação.</p>
+      <div class="project-tags"><span class="tag">Portfólio</span><span class="tag">Storytelling</span><span class="tag">Dados</span><span class="tag">Processos</span></div>
+      <a href="https://paulo-otavio.hatchable.site/" class="project-cta" target="_blank" rel="noopener noreferrer">Acessar portfólio ↗</a>
+
+    </div>
+  </article><article class="project-item reveal" aria-labelledby="proj12-title">
+    <div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" id="mvg-slides" style="--image-ratio:818 / 1598"><div class="device-slide active"><img src="mvg_1.jpeg" alt="Tela real do portfólio MVG Ops" loading="lazy" width="818" height="1598"></div><div class="device-slide"><img src="mvg_2.jpeg" alt="Tela real do portfólio MVG Ops" loading="lazy" width="818" height="1598"></div><div class="device-slide"><img src="mvg_3.jpeg" alt="Tela real do portfólio MVG Ops" loading="lazy" width="818" height="1598"></div></div>
+      </div></div><div>
+
+      <h3 class="project-title" id="proj12-title">MVG Ops <span class="project-badge badge-corporate">Portfólio</span></h3>
+      <div class="project-type">Liderança operacional · Telecom · Alta disponibilidade</div>
+      <p class="project-desc">Portfólio executivo para Marcus Vinícius Guimarães, líder de operações em Telecom. Apresenta experiência em NOC, incidentes críticos, Service Assurance, governança operacional e comunicação executiva em ambientes de missão crítica.</p>
+      <div class="project-tags"><span class="tag">Telecom</span><span class="tag">NOC</span><span class="tag">Operações</span><span class="tag">Liderança</span><span class="tag">Alta disponibilidade</span></div>
+      <a href="https://mvgops-f8yfauyz.manus.space/" class="project-cta" target="_blank" rel="noopener noreferrer">Acessar portfólio ↗</a>
+
+    </div>
+  </article><article class="project-item reveal" aria-labelledby="case-atelier-jess"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:786 / 1536"><div class="device-slide active"><img src="assets/case-atelier-jess-captura-236841.webp" width="786" height="1536" alt="Capa do catálogo" loading="lazy"></div><div class="device-slide"><img src="assets/case-atelier-jess-captura-236843.webp" width="786" height="1536" alt="Perfis olfativos" loading="lazy"></div><div class="device-slide"><img src="assets/case-atelier-jess-captura-236845.webp" width="786" height="1536" alt="Ficha de The Ghost in the Shell" loading="lazy"></div><div class="device-slide"><img src="assets/case-atelier-jess-captura-236853.webp" width="786" height="1536" alt="Ficha de Dahlia Noir" loading="lazy"></div><div class="device-slide"><img src="assets/case-atelier-jess-captura-236851.webp" width="786" height="1536" alt="Ficha de Aura Eau de Parfum" loading="lazy"></div><div class="device-slide"><img src="assets/case-atelier-jess-extra-236859.webp" width="786" height="1536" alt="Terrible Teddy" loading="lazy"></div><div class="device-slide"><img src="assets/case-atelier-jess-extra-236855.webp" width="786" height="1536" alt="Ameeri" loading="lazy"></div><div class="device-slide"><img src="assets/case-atelier-jess-extra-236849.webp" width="786" height="1536" alt="Modest Deux" loading="lazy"></div><div class="device-slide"><img src="assets/case-atelier-jess-extra-236847.webp" width="786" height="1536" alt="Entre Ciel et Mer" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-atelier-jess">Atelier de Jess</h3><div class="project-type">Autoral · Site offline · Curadoria</div><p class="project-desc">Concepção de um catálogo olfativo em HTML para explorar fragrâncias por perfil e comparar alternativas. Desenvolvimento da organização dos dados, os filtros e a apresentação visual. A seleção inclui guias complementares em PDF.</p> <a href="atelier-de-jess/" class="project-cta">Abrir o site ↗</a></div></article><article class="project-item reverse reveal" aria-labelledby="proj4-title">
+    <div>
+
+      <h3 class="project-title" id="proj4-title">Oráculo Pessoal <span class="project-badge badge-free">Gratuito</span></h3>
+      <div class="project-type">Entretenimento · IA generativa · Misticismo</div>
+      <p class="project-desc">Experiência de leitura oracular gerada por IA: o usuário responde perguntas e recebe uma interpretação simbólica personalizada. Entretenimento e introspecção leve, sem nenhuma pretensão diagnóstica ou terapêutica.</p>
+      <div class="project-tags"><span class="tag">IA generativa</span><span class="tag">Misticismo</span><span class="tag">Entretenimento</span></div>
+      <a href="https://oraculopessoal.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-cta">Acessar app ↗</a>
+
+    </div>
+    <div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" id="oraculo-slides" style="--image-ratio:1290 / 2715">
+              <div class="device-slide active"><img src="assets/oraculo-tela-4.jpg" width="1290" height="2715" alt="Tela inicial do Oráculo Pessoal"></div><div class="device-slide"><img src="assets/oraculo-tela-5.jpg" width="720" height="1803" alt="Opções de leitura"></div><div class="device-slide"><img src="assets/oraculo-tela-2.jpg" width="1290" height="2796" alt="Escolha de leitura"></div><div class="device-slide"><img src="assets/oraculo-tela-1.jpg" width="1290" height="2796" alt="Perguntas da leitura"></div><div class="device-slide"><img src="assets/oraculo-tela-6.jpg" width="720" height="1803" alt="Resultado da leitura"></div></div>
+          </div></div></article></section><section class="project-topic" id="tema-marcas" aria-labelledby="tema-marcas-titulo"><h3 id="tema-marcas-titulo" class="project-topic-title">Marcas, campanhas e audiovisual</h3><article class="project-item reveal" aria-labelledby="case-balenciagro"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1086 / 1448"><div class="device-slide active"><img src="assets/balenciagro-campanha-sem-marca.webp" width="1086" height="1448" alt="Campanha com botas" loading="lazy"></div><div class="device-slide"><img src="assets/case-balenciagro-captura-236789.webp" width="1086" height="1448" alt="Fivela da bota com o monograma B" loading="lazy"></div><div class="device-slide"><img src="assets/case-balenciagro-captura-236795.webp" width="1086" height="1448" alt="Editorial no estábulo" loading="lazy"></div><div class="device-slide"><img src="assets/case-balenciagro-captura-236785.webp" width="1086" height="1448" alt="Detalhe da sandália" loading="lazy"></div><div class="device-slide"><img src="assets/case-balenciagro-captura-236799.webp" width="1254" height="1254" alt="Detalhe da sola" loading="lazy"></div><div class="device-slide"><img src="assets/balenciagro-editorial-236784.webp" width="1024" height="1536" alt="Botas de cano alto no campo" loading="lazy"></div><div class="device-slide"><img src="assets/balenciagro-editorial-236777.webp" width="1152" height="1536" alt="Botas de trabalho junto à colheitadeira" loading="lazy"></div><div class="device-slide"><img src="assets/balenciagro-editorial-236769.webp" width="1152" height="1536" alt="Editorial de botas junto aos silos" loading="lazy"></div><div class="device-slide"><img src="assets/balenciagro-editorial-236782.webp" width="1152" height="1536" alt="Look com salto em monograma" loading="lazy"></div><div class="device-slide"><img src="assets/balenciagro-editorial-236779.webp" width="1152" height="1536" alt="Calçado utilitário no estábulo" loading="lazy"></div><div class="device-slide"><img src="assets/balenciagro-editorial-236793.webp" width="1152" height="1536" alt="Sandálias no editorial rural" loading="lazy"></div><div class="device-slide"><img src="assets/balenciagro-editorial-236787.webp" width="1152" height="1536" alt="Detalhe da bota em couro preto" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-balenciagro">Balenciagro</h3><div class="project-type">Autoral · Marca · Plano de negócio</div><p class="project-desc">Concepção de uma marca de calçados premium para mulheres do agronegócio. Desenvolvimento do posicionamento, o plano de negócios, a identidade, o manual de marca, o lookbook da coleção e o pitch de parceria. As projeções fazem parte do estudo de viabilidade.</p> </div></article><article class="project-item reveal" aria-labelledby="case-sensoryshield"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1800 / 1800"><div class="device-slide active"><img src="assets/case-sensoryshield-2.webp" width="1800" height="1800" alt="Capuz em dupla camada" loading="lazy"></div><div class="device-slide"><img src="assets/case-sensoryshield-extra-236755.webp" width="1344" height="768" alt="Ajuste do capuz" loading="lazy"></div><div class="device-slide"><img src="assets/case-sensoryshield-extra-236767.webp" width="1344" height="768" alt="Malha técnica" loading="lazy"></div><div class="device-slide"><img src="assets/case-sensoryshield-extra-236757.webp" width="1344" height="768" alt="Etiqueta impressa" loading="lazy"></div><div class="device-slide"><img src="assets/case-sensoryshield-extra-236763.webp" width="1344" height="768" alt="Detalhe do acabamento" loading="lazy"></div><div class="device-slide"><img src="assets/case-sensoryshield-extra-236766.webp" width="2752" height="1536" alt="Silhueta da peça" loading="lazy"></div><div class="device-slide"><img src="assets/case-sensoryshield-1.webp" width="1344" height="768" alt="Conceito em ambiente urbano" loading="lazy"></div><div class="device-slide"><img src="assets/case-sensoryshield-5.webp" width="1024" height="1024" alt="Conceito do espaço de loja" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-sensoryshield">SensoryShield</h3><div class="project-type">Autoral · Design de produto</div><p class="project-desc">Conceito de vestuário inclusivo com capuz de dupla camada, painéis acústicos e acabamento sem etiquetas costuradas. O estudo inclui renders da peça, detalhes construtivos e uma proposta de ambiente de loja.</p></div></article><article class="project-item reveal" aria-labelledby="case-videos-produto"><div><video controls playsinline preload="none" aria-label="Vídeo de produto · chaleira" poster="assets/video-produto-1-thumb.webp" style="width:100%;margin-bottom:1rem"><source src="assets/video-produto-1.mp4" type="video/mp4"></video><video controls playsinline preload="none" aria-label="Vídeo de produto · escorredor" poster="assets/video-produto-3-thumb.webp" style="width:100%;margin-bottom:1rem"><source src="assets/video-produto-3.mp4" type="video/mp4"></video><video controls playsinline preload="none" aria-label="Vídeo de produto · lixeira" poster="assets/video-produto-4-thumb.webp" style="width:100%;margin-bottom:1rem"><source src="assets/video-produto-4.mp4" type="video/mp4"></video></div><div><h3 class="project-title" id="case-videos-produto">Vídeos de produto</h3><div class="project-type">Autoral · Audiovisual</div><p class="project-desc">Três peças curtas de apresentação de produtos.</p></div></article><article class="project-item reveal" aria-labelledby="added-35"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1200 / 1500"><div class="device-slide active"><img src="assets/linkedin-carrossel-01.webp" width="1200" height="1500" alt="Série editorial para LinkedIn · imagem 1" loading="lazy"></div><div class="device-slide"><img src="assets/added-35-captura-236817.webp" width="1229" height="1536" alt="O problema" loading="lazy"></div><div class="device-slide"><img src="assets/added-35-captura-236818.webp" width="1229" height="1536" alt="A mensagem central" loading="lazy"></div><div class="device-slide"><img src="assets/added-35-captura-236820.webp" width="1229" height="1526" alt="A mudança" loading="lazy"></div><div class="device-slide"><img src="assets/added-35-captura-236819.webp" width="1229" height="1526" alt="A reflexão" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-35">Série editorial para LinkedIn</h3><div class="project-type">Comunicação visual</div><p class="project-desc">Concepção da linha editorial, redação, identidade visual e design de carrosséis para LinkedIn. Desenvolvimento integral da automação de publicação, incluindo regras editoriais, cadência e agendamento.</p></div></article><article class="project-item reveal" aria-labelledby="added-34"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1536 / 1536"><div class="device-slide active"><img src="assets/spotify-capa-236812.webp" width="1536" height="1536" alt="Mão com chama e coroa de espinhos" loading="lazy"></div><div class="device-slide"><img src="assets/spotify-capa-236802.webp" width="1536" height="1536" alt="Figura entre pétalas" loading="lazy"></div><div class="device-slide"><img src="assets/spotify-capa-236816.webp" width="1536" height="1536" alt="Fita cassete e flores" loading="lazy"></div><div class="device-slide"><img src="assets/spotify-capa-236815.webp" width="1536" height="1536" alt="Coração e rosas" loading="lazy"></div><div class="device-slide"><img src="assets/spotify-capa-236814.webp" width="1536" height="1536" alt="Figura com raízes" loading="lazy"></div><div class="device-slide"><img src="assets/spotify-capa-236801.webp" width="1536" height="1536" alt="Caldeirão e ingredientes" loading="lazy"></div><div class="device-slide"><img src="assets/spotify-capa-236803.webp" width="1536" height="1536" alt="Órbitas e planetas" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-34">Capas para playlists do Spotify</h3><div class="project-type">Ilustração</div><p class="project-desc">Criação de capas para playlists do Spotify, com ilustrações em formato quadrado, traço de gravura e molduras ornamentais.</p>     </div></article><article class="project-item reveal" aria-labelledby="case-proposta-editorial"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:2232 / 1256"><div class="device-slide active"><img src="assets/proposta-editorial-pagina-1.webp" width="2232" height="1256" alt="Página 1 do documento original" loading="lazy"></div><div class="device-slide"><img src="assets/proposta-editorial-pagina-2.webp" width="2232" height="1256" alt="Página 2 do documento original" loading="lazy"></div><div class="device-slide"><img src="assets/proposta-editorial-pagina-3.webp" width="2232" height="1256" alt="Página 3 do documento original" loading="lazy"></div><div class="device-slide"><img src="assets/proposta-editorial-pagina-4.webp" width="2232" height="1256" alt="Página 4 do documento original" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-proposta-editorial">Proposta de conteúdo para redes sociais</h3><p class="project-desc">Proposta editorial com ideias de posts, modelos de legenda e produção sob demanda.</p></div></article><article class="project-item reveal" aria-labelledby="case-proposta-artigos"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:2232 / 1256"><div class="device-slide active"><img src="assets/proposta-artigos-pagina-1.webp" width="2232" height="1256" alt="Página 1 do documento original" loading="lazy"></div><div class="device-slide"><img src="assets/proposta-artigos-pagina-2.webp" width="2232" height="1256" alt="Página 2 do documento original" loading="lazy"></div><div class="device-slide"><img src="assets/proposta-artigos-pagina-3.webp" width="2232" height="1256" alt="Página 3 do documento original" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-proposta-artigos">Proposta de produção de artigos</h3><p class="project-desc">Proposta de serviços editoriais para artigos, com definição de escopo e etapas da produção.</p></div></article><article class="project-item reveal" aria-labelledby="case-figurinhas-old-school"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1254 / 1254"><div class="device-slide active"><img src="assets/figurinha-old-school-1.webp" width="1254" height="1254" alt="Foi mal!" loading="lazy"></div><div class="device-slide"><img src="assets/figurinha-old-school-2.webp" width="1254" height="1254" alt="Parabéns!" loading="lazy"></div><div class="device-slide"><img src="assets/figurinha-old-school-3.webp" width="1254" height="1254" alt="Hoje não" loading="lazy"></div><div class="device-slide"><img src="assets/figurinha-old-school-4.webp" width="1254" height="1254" alt="Bom dia!" loading="lazy"></div><div class="device-slide"><img src="assets/figurinha-old-school-5.webp" width="1254" height="1254" alt="Tudo bem?" loading="lazy"></div><div class="device-slide"><img src="assets/figurinha-old-school-6.webp" width="1254" height="1254" alt="Boa noite!" loading="lazy"></div><div class="device-slide"><img src="assets/figurinha-old-school-7.webp" width="1254" height="1254" alt="Amanhã eu passo raiva de novo" loading="lazy"></div><div class="device-slide"><img src="assets/figurinha-old-school-8.webp" width="1254" height="1254" alt="Gatíssima" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-figurinhas-old-school">WhatsApp Stickers</h3><p class="project-desc">Criação de dezenas de figurinhas para mensagens, em vários estilos, com peças personalizadas sob demanda. A galeria reúne oito exemplos inspirados em tatuagem old school.</p></div></article></section><section class="project-topic" id="tema-narrativas" aria-labelledby="tema-narrativas-titulo"><h3 id="tema-narrativas-titulo" class="project-topic-title">Jogos e narrativas interativas</h3><article class="project-item reveal" aria-labelledby="proj3-title">
+    <div>
+
+      <h3 class="project-title" id="proj3-title">Convergir <span class="project-badge badge-demo">Demo</span></h3>
+      <div class="project-type">Narrativa interativa · Ficção científica romântica</div>
+      <p class="project-desc">Narrativa interativa com mecânicas imersivas de jogo: ficção científica romântica em que o leitor sintoniza frequências, atravessa cenários e acompanha a história de Lia e Bento até o ponto de convergência. Trilha sonora, ilustrações originais e ritmo próprio em cada capítulo.</p>
+      <div class="project-tags"><span class="tag">Narrativa interativa</span><span class="tag">Game design</span><span class="tag">Ficção científica</span><span class="tag">Trilha original</span></div>
+      <a href="https://jessblock.github.io/convergir/" target="_blank" rel="noopener noreferrer" class="project-cta">Jogar ↗</a>
+
+    </div>
+    <div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" id="convergir-slides" style="--image-ratio:720 / 1803">
+              <div class="device-slide active"><img src="assets/convergir_1.webp" alt="Convergir Demo · imagem 1" loading="lazy" width="720" height="1803"></div>
+              <div class="device-slide"><img src="assets/convergir_2.webp" alt="Convergir Demo · imagem 2" loading="lazy" width="720" height="1803"></div>
+              <div class="device-slide"><img src="assets/convergir_3.webp" alt="Convergir Demo · imagem 3" loading="lazy" width="720" height="1630"></div>
+              <div class="device-slide"><img src="assets/convergir_4.webp" alt="Convergir Demo · imagem 4" loading="lazy" width="720" height="1629"></div>
+              <div class="device-slide"><img src="assets/convergir_5.webp" alt="Convergir Demo · imagem 5" loading="lazy" width="720" height="1540"></div>
+            <div class="device-slide"><img src="assets/convergir-narrativa-01.webp" alt="Estrada em ruínas" loading="lazy" width="1536" height="857"></div><div class="device-slide"><img src="assets/convergir-narrativa-02.webp" alt="Estação de rádio no terraço" loading="lazy" width="1536" height="857"></div><div class="device-slide"><img src="assets/convergir-narrativa-03.webp" alt="Sinal luminoso sobre a cidade" loading="lazy" width="1536" height="1295"></div><div class="device-slide"><img src="assets/convergir-narrativa-04.webp" alt="Escuta no terraço à noite" loading="lazy" width="1536" height="857"></div><div class="device-slide"><img src="assets/convergir-narrativa-05.webp" alt="Retrato da protagonista" loading="lazy" width="857" height="1536"></div><div class="device-slide"><img src="assets/convergir-narrativa-06.webp" alt="Bancada com rádios" loading="lazy" width="1536" height="857"></div><div class="device-slide"><img src="assets/convergir-narrativa-07.webp" alt="Reparo do rádio" loading="lazy" width="1536" height="857"></div><div class="device-slide"><img src="assets/convergir-narrativa-08.webp" alt="Escuta na cabana" loading="lazy" width="1536" height="857"></div><div class="device-slide"><img src="assets/convergir-narrativa-09.webp" alt="Retrato do personagem" loading="lazy" width="857" height="1536"></div><div class="device-slide"><img src="assets/convergir-narrativa-10.webp" alt="Ondas de rádio entre os personagens" loading="lazy" width="1536" height="857"></div><div class="device-slide"><img src="assets/convergir-narrativa-11.webp" alt="Contato pelo rádio" loading="lazy" width="1536" height="857"></div><div class="device-slide"><img src="assets/convergir-narrativa-12.webp" alt="Mapa dos sinais" loading="lazy" width="1536" height="857"></div><div class="device-slide"><img src="assets/convergir-narrativa-13.webp" alt="Aproximação no campo" loading="lazy" width="1536" height="857"></div><div class="device-slide"><img src="assets/convergir-narrativa-14.webp" alt="Encontro no campo" loading="lazy" width="1536" height="857"></div><div class="device-slide"><img src="assets/convergir-narrativa-15.webp" alt="Mãos que se encontram" loading="lazy" width="1536" height="857"></div><div class="device-slide"><img src="assets/convergir-narrativa-16.webp" alt="Silhuetas ao amanhecer" loading="lazy" width="1536" height="857"></div></div>
+          </div></div></article><article class="project-item reverse reveal" aria-labelledby="proj6-title">
+    <div>
+
+      <h3 class="project-title" id="proj6-title">Operação Horizonte <span class="project-badge badge-demo">Demo</span></h3>
+      <div class="project-type">Gamificação · Neurodivergência · Família</div>
+      <p class="project-desc">App de gamificação de rotina para crianças neurodivergentes: sistema de missões diárias, laboratório criativo, conquistas, XP e progressão por ranking. Painel de comando para o responsável configurar missões, aprovar entregas e acompanhar o progresso. Desenvolvido para tornar a rotina estruturada em aventura.</p>
+      <div class="project-tags"><span class="tag">Gamificação</span><span class="tag">TEA / TDAH</span><span class="tag">Rotina</span><span class="tag">Criança</span><span class="tag">PWA</span></div>
+      <a href="https://horizonte-tau.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-cta">Acessar app ↗</a>
+
+    </div>
+    <div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" id="horizonte-slides" style="--image-ratio:1442 / 3202">
+              <div class="device-slide active"><img src="assets/horizonte_1.webp" alt="Operação Horizonte Demo · imagem 1" loading="lazy" width="1442" height="3202"></div>
+              <div class="device-slide"><img src="assets/horizonte_2.webp" alt="Operação Horizonte Demo · imagem 2" loading="lazy" width="1442" height="3202"></div>
+              <div class="device-slide"><img src="assets/horizonte_3.webp" alt="Operação Horizonte Demo · imagem 3" loading="lazy" width="1442" height="3202"></div>
+              <div class="device-slide"><img src="assets/horizonte_4.webp" alt="Operação Horizonte Demo · imagem 4" loading="lazy" width="1442" height="3202"></div>
+              <div class="device-slide"><img src="assets/horizonte_5.webp" alt="Operação Horizonte Demo · imagem 5" loading="lazy" width="1442" height="3202"></div>
+            </div>
+          </div></div></article><article class="project-item reveal" aria-labelledby="case-jardim-encantado"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-jardim-encantado.webp" width="1000" height="1000" alt="Capa editorial de Jardim Encantado" loading="lazy"></div><div><h3 class="project-title" id="case-jardim-encantado">Jardim Encantado</h3><div class="project-type">Autoral · Identidade visual · Estamparia</div><p class="project-desc">Identidade gráfica para um primeiro aniversário, com ilustrações e estudos de padrões florais.</p></div></article></section><section class="project-topic" id="tema-tecnologia" aria-labelledby="tema-tecnologia-titulo"><h3 id="tema-tecnologia-titulo" class="project-topic-title">Produtos de tecnologia e go-to-market</h3><article class="project-item reveal" aria-labelledby="added-36"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-added-36.webp" width="1000" height="1000" alt="Capa editorial de Lançamento de infraestrutura em nuvem" loading="lazy"></div><div><h3 class="project-title" id="added-36">Lançamento de infraestrutura em nuvem</h3><div class="project-type">Produto B2B · Apresentações</div><p class="project-desc">Atuação em mercado, comunicação de lançamento e materiais de habilitação comercial.</p></div></article><article class="project-item reveal" aria-labelledby="added-37"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-added-37.webp" width="1000" height="1000" alt="Capa editorial de Serviços profissionais de tecnologia" loading="lazy"></div><div><h3 class="project-title" id="added-37">Serviços profissionais de tecnologia</h3><div class="project-type">Produto B2B · Apresentações</div><p class="project-desc">Contribuição em pesquisa de mercado, concepção de oferta e roadmap.</p></div></article><article class="project-item reveal" aria-labelledby="case-faq-nuvem"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-faq-nuvem.webp" width="1000" height="1000" alt="Capa editorial de FAQ de infraestrutura em nuvem" loading="lazy"></div><div><h3 class="project-title" id="case-faq-nuvem">FAQ de infraestrutura em nuvem</h3><div class="project-type">Corporativo · HTML offline · PDF</div><p class="project-desc">Redação, estruturação e design instrucional de um FAQ sobre infraestrutura em nuvem. As versões em HTML e PDF organizam as dúvidas por tema, com índice de navegação, respostas e diagramas. A galeria apresenta recortes anonimizados do material.</p></div></article><article class="project-item reveal" aria-labelledby="case-timeline-nuvem"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-timeline-nuvem.webp" width="1000" height="1000" alt="Capa editorial de Linha do tempo da evolução de uma oferta de nuvem" loading="lazy"></div><div><h3 class="project-title" id="case-timeline-nuvem">Linha do tempo da evolução de uma oferta de nuvem</h3><div class="project-type">Corporativo · HTML offline · Apresentação</div><p class="project-desc">Concepção e implementação de uma apresentação navegável com marcos, capítulos da jornada, visão das entregas e controles de navegação.</p></div></article><article class="project-item reveal" aria-labelledby="case-roadmap-gtm-nuvem"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-roadmap-gtm-nuvem.webp" width="1000" height="1000" alt="Capa editorial de Roadmap executivo de go-to-market" loading="lazy"></div><div><h3 class="project-title" id="case-roadmap-gtm-nuvem">Roadmap executivo de go-to-market</h3><div class="project-type">Corporativo · HTML offline · Roadmap</div><p class="project-desc">Design e desenvolvimento de uma timeline executiva para apresentar fases de lançamento, frentes de comunicação e visão por segmento.</p></div></article><article class="project-item reveal" aria-labelledby="case-timeline-servicos"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-timeline-servicos.webp" width="1000" height="1000" alt="Capa editorial de Cronograma de concepção de serviços profissionais" loading="lazy"></div><div><h3 class="project-title" id="case-timeline-servicos">Cronograma de concepção de serviços profissionais</h3><div class="project-type">Corporativo · HTML offline · Planejamento</div><p class="project-desc">Estruturação de cronograma e roadmap interativo para acompanhar responsabilidades, dependências, marcos e fases de concepção.</p></div></article><article class="project-item reveal" aria-labelledby="case-team-building-mercado"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-team-building-mercado.webp" width="1000" height="1000" alt="Capa editorial de Team building de uma equipe de novos produtos" loading="lazy"></div><div><h3 class="project-title" id="case-team-building-mercado">Team building de uma equipe de novos produtos</h3><div class="project-type">Corporativo · PowerPoint · HTML</div><p class="project-desc">Criação de apresentação e versão web para explicar a atuação da equipe de Mercado, suas competências e a colaboração com as demais frentes.</p></div></article><article class="project-item reveal" aria-labelledby="case-one-page-nuvem"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-one-page-nuvem.webp" width="1000" height="1000" alt="Capa editorial de One-pages de uma oferta de infraestrutura" loading="lazy"></div><div><h3 class="project-title" id="case-one-page-nuvem">One-pages de uma oferta de infraestrutura</h3><div class="project-type">Corporativo · PowerPoint · Comunicação comercial</div><p class="project-desc">Estruturação e diagramação de materiais sintéticos para consulta e apresentação comercial, com premissas de oferta e organização visual em uma página.</p></div></article><article class="project-item reveal" aria-labelledby="case-jornada-plataforma"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-jornada-plataforma.webp" width="1000" height="1000" alt="Capa editorial de Jornada de acesso a uma plataforma de nuvem" loading="lazy"></div><div><h3 class="project-title" id="case-jornada-plataforma">Jornada de acesso a uma plataforma de nuvem</h3><div class="project-type">Corporativo · PowerPoint · Design de serviço</div><p class="project-desc">Produção de apresentação sobre a jornada do cliente, com organização dos pontos de acesso, consulta de informações e atendimento.</p></div></article><article class="project-item reveal" aria-labelledby="added-42"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-added-42.webp" width="1000" height="1000" alt="Capa editorial de Apresentações de estratégia e governança" loading="lazy"></div><div><h3 class="project-title" id="added-42">Apresentações de estratégia e governança</h3><div class="project-type">Design de apresentações</div><p class="project-desc">Desenvolvimento de materiais executivos para uma iniciativa do agronegócio, com política de relacionamento com fornecedores, cronograma e matriz de responsabilidades.</p></div></article><article class="project-item reveal" aria-labelledby="case-camisetas-operacao"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-camisetas-operacao.webp" width="1000" height="1000" alt="Capa editorial de Estampas para um centro de operações" loading="lazy"></div><div><h3 class="project-title" id="case-camisetas-operacao">Estampas para um centro de operações</h3><div class="project-type">Comunicação corporativa · Ilustração</div><p class="project-desc">Criação de uma coleção de 20 conceitos de camisetas sobre monitoramento, continuidade de serviço e redes. O estudo inclui aplicações de frente, verso, detalhes e estampas separadas.</p></div></article></section><section class="project-topic" id="tema-aprendizagem" aria-labelledby="tema-aprendizagem-titulo"><h3 id="tema-aprendizagem-titulo" class="project-topic-title">Aprendizagem e carreira</h3><article class="project-item reveal" aria-labelledby="added-39"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-added-39.webp" width="1000" height="1000" alt="Capa editorial de Curso de fundamentos de nuvem" loading="lazy"></div><div><h3 class="project-title" id="added-39">Curso de fundamentos de nuvem</h3><div class="project-type">Design instrucional · Site</div><p class="project-desc">Curso digital offline com conteúdo e atividades sobre soluções em nuvem.</p></div></article><article class="project-item reveal" aria-labelledby="added-43"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-added-43.webp" width="1000" height="1000" alt="Capa editorial de Onboarding digital" loading="lazy"></div><div><h3 class="project-title" id="added-43">Onboarding digital</h3><div class="project-type">Design instrucional</div><p class="project-desc">Desenvolvimento de conteúdo instrucional para um programa de integração de colaboradores. O projeto recebeu reconhecimento no Prêmio Learning and Performance Brasil 2018/2019.</p></div></article><article class="project-item reveal" aria-labelledby="added-44"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-added-44.webp" width="1000" height="1000" alt="Capa editorial de Capacitação em produtos e serviços financeiros" loading="lazy"></div><div><h3 class="project-title" id="added-44">Capacitação em produtos e serviços financeiros</h3><div class="project-type">Design instrucional</div><p class="project-desc">Criação de conteúdos de aprendizagem para equipes de serviços financeiros, incluindo pagamentos digitais, produtos bancários e atendimento.</p></div></article><article class="project-item reveal" aria-labelledby="added-40"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:983 / 1390"><div class="device-slide active"><img src="assets/redacao-exemplos-02.webp" width="983" height="1390" alt="Redação e design instrucional · imagem 1" loading="lazy"></div><div class="device-slide"><img src="assets/redacao-exemplos-03.webp" width="983" height="1390" alt="Redação e design instrucional · imagem 2" loading="lazy"></div><div class="device-slide"><img src="assets/redacao-exemplos-04.webp" width="983" height="1390" alt="Redação e design instrucional · imagem 3" loading="lazy"></div><div class="device-slide"><img src="assets/redacao-exemplos-05.webp" width="983" height="1390" alt="Redação e design instrucional · imagem 4" loading="lazy"></div><div class="device-slide"><img src="assets/redacao-exemplos-06.webp" width="983" height="1390" alt="Redação e design instrucional · imagem 5" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-40">Redação e design instrucional</h3><div class="project-type">Acervo 2009–2019</div><p class="project-desc">Acervo de 2009 a 2019 com amostras de redação instrucional sobre corrosão metálica, câmbio e atendimento. Uso de analogias, perguntas e exemplos para tornar o conteúdo técnico mais fácil de aplicar.</p></div></article><article class="project-item reveal" aria-labelledby="case-mentoria-gpt"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-mentoria-gpt.webp" width="1000" height="1000" alt="Capa editorial de Da ideia à ferramenta com IA" loading="lazy"></div><div><h3 class="project-title" id="case-mentoria-gpt">Da ideia à ferramenta com IA</h3><div class="project-type">Autoral · Infográfico · Passo a passo</div><p class="project-desc">Infográfico sobre como desenvolver e testar uma ferramenta de despesas em HTML. Inclui briefing, prototipagem, correções por capturas e conferência de relatórios.</p></div></article><article class="project-item reveal" aria-labelledby="case-entrevista-profissional"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-entrevista-profissional.webp" width="1000" height="1000" alt="Capa editorial de Roteiro digital de entrevista profissional" loading="lazy"></div><div><h3 class="project-title" id="case-entrevista-profissional">Roteiro digital de entrevista profissional</h3><div class="project-type">Autoral · Site · Desenvolvimento de carreira</div><p class="project-desc">Roteiro digital de entrevista organizado como preparação navegável para o início de carreira.</p></div></article><article class="project-item reveal" aria-labelledby="case-carreira-telecom"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-carreira-telecom.webp" width="1000" height="1000" alt="Capa editorial de Posicionamento profissional em operações de telecom" loading="lazy"></div><div><h3 class="project-title" id="case-carreira-telecom">Posicionamento profissional em operações de telecom</h3><div class="project-type">Autoral · Redação · Identidade · Web</div><p class="project-desc">Estratégia de posicionamento de Marcus Vinícius Guimarães, com currículo executivo, versões ATS e conteúdo para LinkedIn.</p></div></article><article class="project-item reveal" aria-labelledby="case-tutorial-mensagens"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-tutorial-mensagens.webp" width="1000" height="1000" alt="Capa editorial de Passo a passo para usar um aplicativo de mensagens" loading="lazy"></div><div><h3 class="project-title" id="case-tutorial-mensagens">Passo a passo para usar um aplicativo de mensagens</h3><div class="project-type">Autoral · Tutorial · Apresentação</div><p class="project-desc">Organização do fluxo de uso em uma apresentação e preparei uma alternativa com tipografia maior para facilitar a leitura.</p></div></article><article class="project-item reveal" aria-labelledby="case-apresentacao-editorial"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:923 / 653"><div class="device-slide active"><img src="assets/apresentacao-editorial-capa.webp" width="923" height="653" alt="Capa original da apresentação profissional" loading="lazy"></div><div class="device-slide"><img src="assets/apresentacao-editorial-pagina-2.webp" width="923" height="653" alt="Página 2 do documento original" loading="lazy"></div><div class="device-slide"><img src="assets/apresentacao-editorial-pagina-4.webp" width="923" height="653" alt="Página 4 do documento original" loading="lazy"></div><div class="device-slide"><img src="assets/apresentacao-editorial-pagina-5.webp" width="923" height="653" alt="Página 5 do documento original" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-apresentacao-editorial">Apresentação profissional de design e redação</h3><p class="project-desc">Apresentação de serviços de redação, design instrucional e diagramação, com exemplos de formatos para mídia digital e treinamentos.</p></div></article><article class="project-item reveal" aria-labelledby="case-curriculo-historico"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:923 / 1305"><div class="device-slide active"><img src="assets/curriculo-historico-capa.webp" width="923" height="1305" alt="Abertura do currículo histórico" loading="lazy"></div><div class="device-slide"><img src="assets/curriculo-historico-pagina-3.webp" width="923" height="1305" alt="Página 3 do documento original" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-curriculo-historico">Currículo editorial de Jessica Block</h3><p class="project-desc">Material histórico que reúne experiência em redação, design instrucional e educação corporativa.</p></div></article><article class="project-item reveal" aria-labelledby="case-inteligencia-dados"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1489 / 837"><div class="device-slide active"><img src="assets/inteligencia-dados-pagina-1.webp" width="1489" height="837" alt="Página 1 do documento original" loading="lazy"></div><div class="device-slide"><img src="assets/inteligencia-dados-pagina-9.webp" width="1489" height="837" alt="Página 9 do documento original" loading="lazy"></div><div class="device-slide"><img src="assets/inteligencia-dados-pagina-25.webp" width="1489" height="837" alt="Página 25 do documento original" loading="lazy"></div><div class="device-slide"><img src="assets/inteligencia-dados-pagina-24.webp" width="1489" height="837" alt="Página 24 do documento original" loading="lazy"></div><div class="device-slide"><img src="assets/inteligencia-dados-pagina-27.webp" width="1489" height="837" alt="Página 27 do documento original" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-inteligencia-dados">Inteligência de dados</h3><p class="project-desc">Apresentação para um meetup de dados, com aplicações de análise, ciência de dados e inteligência de negócio na tomada de decisão.</p></div></article></section><section class="project-topic" id="tema-arquitetura" aria-labelledby="tema-arquitetura-titulo"><h3 id="tema-arquitetura-titulo" class="project-topic-title">Arquitetura e interiores</h3><article class="project-item reveal" aria-labelledby="added-27"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:496 / 496"><div class="device-slide active"><img src="assets/bar-ambiente-2-1.webp" width="496" height="496" alt="Salão principal e palco" loading="lazy"></div><div class="device-slide"><img src="assets/bar-ambiente-1-2.webp" width="496" height="496" alt="Visão do salão a partir do palco" loading="lazy"></div><div class="device-slide"><img src="assets/bar-ambiente-2-3.webp" width="496" height="496" alt="Balcão e área de atendimento" loading="lazy"></div><div class="device-slide"><img src="assets/bar-ambiente-3-3.webp" width="496" height="496" alt="Conceito do balcão em verde" loading="lazy"></div><div class="device-slide"><img src="assets/bar-ambiente-3-6.webp" width="496" height="496" alt="Entrada do bar" loading="lazy"></div><div class="device-slide"><img src="assets/bar-ambiente-4-1.webp" width="496" height="496" alt="Conceito de palco com iluminação violeta" loading="lazy"></div><div class="device-slide"><img src="assets/bar-ambiente-4-3.webp" width="496" height="496" alt="Balcão da quarta proposta" loading="lazy"></div><div class="device-slide"><img src="assets/bar-ambiente-2-4.webp" width="496" height="496" alt="Cozinha profissional" loading="lazy"></div><div class="device-slide"><img src="assets/bar-ambiente-1-5.webp" width="496" height="496" alt="Lavabos" loading="lazy"></div><div class="device-slide"><img src="assets/bar-ambiente-4-6.webp" width="496" height="496" alt="Área externa" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-27">Bar alternativo em Uberlândia</h3><div class="project-type">Concepção de negócio</div><p class="project-desc">Concepção de quatro propostas de bar para quatro imóveis em Uberlândia. O estudo reúne 24 vistas conceituais, comparação dos imóveis, cardápio, operação e estimativas de custos, apresentados em um protótipo interativo.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-29"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-added-29.webp" width="1000" height="1000" alt="Capa editorial de Manual de arquitetura e interiores" loading="lazy"></div><div><h3 class="project-title" id="added-29">Manual de arquitetura e interiores</h3><div class="project-type">Publicação digital</div><p class="project-desc">Curadoria de 38 estilos e repertório de materiais, aberturas e paisagismo.</p></div></article><article class="project-item reveal" aria-labelledby="added-12"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1200 / 675"><div class="device-slide active"><img src="assets/estacao-cena-12-01.webp" width="1200" height="675" alt="Estar com vista panorâmica" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-12-02.webp" width="1200" height="675" alt="Cozinha com ilha" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-12-03.webp" width="1200" height="675" alt="Jantar e bar" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-12-04.webp" width="1200" height="675" alt="Suíte com espelho orgânico" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-12-05.webp" width="1200" height="675" alt="Banheiro de pedra azul" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-12">Horizonte do Uberabinha</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-13"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1200 / 675"><div class="device-slide active"><img src="assets/estacao-cena-13-01.webp" width="1200" height="675" alt="Pátio dos Ipês" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-13-02.webp" width="1200" height="675" alt="Mesa de Quitanda" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-13-03.webp" width="1200" height="675" alt="Banho de Quartzito" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-13-04.webp" width="1200" height="675" alt="Estar voltado para o pátio" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-13-05.webp" width="1200" height="675" alt="Hall" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-13">Casa Pátio da Vereda</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-15"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1200 / 675"><div class="device-slide active"><img src="assets/estacao-cena-15-01.webp" width="1200" height="675" alt="Marquise de chegada" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-15-02.webp" width="1200" height="675" alt="Recepção" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-15-03.webp" width="1200" height="675" alt="Espera" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-15-04.webp" width="1200" height="675" alt="Corredor de consultórios" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-15-05.webp" width="1200" height="675" alt="Consultório" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-15">Átrio de Uberlândia</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-21"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1200 / 675"><div class="device-slide active"><img src="assets/estacao-cena-21-01.webp" width="1200" height="675" alt="Estar e vinil" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-21-02.webp" width="1200" height="675" alt="Cozinha e mesa" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-21-03.webp" width="1200" height="675" alt="Quarto" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-21-04.webp" width="1200" height="675" alt="Banheiro" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-21-05.webp" width="1200" height="675" alt="Home office" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-21">Apartamento Cor de Rua</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-14"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1200 / 675"><div class="device-slide active"><img src="assets/estacao-cena-14-01.webp" width="1200" height="675" alt="Pórtico" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-14-02.webp" width="1200" height="675" alt="Salão de leitura" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-14-03.webp" width="1200" height="675" alt="Sala de estudo em grupo" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-14-04.webp" width="1200" height="675" alt="Pátio" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-14-05.webp" width="1200" height="675" alt="Sala multimídia" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-14">Biblioteca do Cerrado</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-16"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1200 / 675"><div class="device-slide active"><img src="assets/estacao-cena-16-01.webp" width="1200" height="675" alt="Estar" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-16-02.webp" width="1200" height="675" alt="Cozinha" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-16-03.webp" width="1200" height="675" alt="Estúdio" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-16-04.webp" width="1200" height="675" alt="Quarto" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-16-05.webp" width="1200" height="675" alt="Banheiro" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-16">Loft Mogiana</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-17"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1200 / 675"><div class="device-slide active"><img src="assets/estacao-cena-17-01.webp" width="1200" height="675" alt="Sala de estar" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-17-02.webp" width="1200" height="675" alt="Sala de jantar" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-17-03.webp" width="1200" height="675" alt="Biblioteca" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-17-04.webp" width="1200" height="675" alt="Suíte" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-17-05.webp" width="1200" height="675" alt="Cozinha" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-17">Casa do Acervo</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-18"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1200 / 675"><div class="device-slide active"><img src="assets/estacao-cena-18-01.webp" width="1200" height="675" alt="Entrada" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-18-02.webp" width="1200" height="675" alt="Pátio de bambu" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-18-03.webp" width="1200" height="675" alt="Galeria" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-18-04.webp" width="1200" height="675" alt="Terraço" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-18-05.webp" width="1200" height="675" alt="Auditório" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-18">Pavilhão do Triângulo</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-19"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1200 / 675"><div class="device-slide active"><img src="assets/estacao-cena-19-01.webp" width="1200" height="675" alt="Cozinha" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-19-02.webp" width="1200" height="675" alt="Sala de jantar" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-19-03.webp" width="1200" height="675" alt="Sala de música e cinema" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-19-04.webp" width="1200" height="675" alt="Penteadeira" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-19-05.webp" width="1200" height="675" alt="Varanda toscana" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-19">Casa das Dálias</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-20"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1200 / 675"><div class="device-slide active"><img src="assets/estacao-cena-20-01.webp" width="1200" height="675" alt="Sala" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-20-02.webp" width="1200" height="675" alt="Cozinha ampla" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-20-03.webp" width="1200" height="675" alt="Jantar" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-20-04.webp" width="1200" height="675" alt="Suíte principal" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-20-05.webp" width="1200" height="675" alt="Quarto de futebol, skate e robótica" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-20">Apartamento Domingo de Sol</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-22"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1200 / 675"><div class="device-slide active"><img src="assets/estacao-cena-22-01.webp" width="1200" height="675" alt="Estar e jantar · 24 m²" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-22-02.webp" width="1200" height="675" alt="Canto de escuta integrado ao estar" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-22-03.webp" width="1200" height="675" alt="Jantar integrado ao estar" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-22-04.webp" width="1200" height="675" alt="Cozinha · 9 m²" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-22-05.webp" width="1200" height="675" alt="Suíte · quarto de 12 m²" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-22">Apartamento Clube da Escuta</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-23"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:960 / 540"><div class="device-slide active"><img src="assets/estacao-cena-23-01.webp" width="960" height="540" alt="Entrada e recepção" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-23-02.webp" width="960" height="540" alt="Fachada com varanda e rota acessível" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-23-03.webp" width="960" height="540" alt="Sala de convivência e jantar dos hóspedes" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-23-04.webp" width="960" height="540" alt="Cozinha de preparo e copa" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-23-05.webp" width="960" height="540" alt="Suíte com vista para o Cerrado" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-23">Casa Varanda do Capim</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-24"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:960 / 540"><div class="device-slide active"><img src="assets/estacao-cena-24-01.webp" width="960" height="540" alt="Biblioteca e sala de leitura" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-24-02.webp" width="960" height="540" alt="Fachada e entrada da casa térrea" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-24-03.webp" width="960" height="540" alt="Hall e corredor de circulação" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-24-04.webp" width="960" height="540" alt="Estar e jantar voltados para o quintal" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-24-05.webp" width="960" height="540" alt="Cozinha com marcenaria marfim e nicho ameixa" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-24">Casa de Leitura</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article><article class="project-item reveal" aria-labelledby="added-25"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:960 / 540"><div class="device-slide active"><img src="assets/estacao-cena-25-01.webp" width="960" height="540" alt="Bancada de encadernação" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-25-02.webp" width="960" height="540" alt="Fachada sombreada com calçada e entrada" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-25-03.webp" width="960" height="540" alt="Loja de papelaria e balcão de atendimento" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-25-04.webp" width="960" height="540" alt="Sala de acabamento, secagem e embalagem" loading="lazy"></div><div class="device-slide"><img src="assets/estacao-cena-25-05.webp" width="960" height="540" alt="Sala de aula de encadernação separada da produção" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-25">Oficina Aberta</h3><div class="project-type">Interiores · Projeto conceitual</div><p class="project-desc">Estudo autoral de interiores.</p>  </div></article></section><section class="project-topic" id="tema-gastronomia" aria-labelledby="tema-gastronomia-titulo"><h3 id="tema-gastronomia-titulo" class="project-topic-title">Gastronomia</h3><article class="project-item reveal" aria-labelledby="added-a-mesa"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:786 / 1536"><div class="device-slide active"><img src="assets/added-a-mesa-captura-236823.webp" width="786" height="1536" alt="Capa com frango mediterrâneo" loading="lazy"></div><div class="device-slide"><img src="assets/added-a-mesa-captura-236825.webp" width="786" height="1536" alt="Capítulos e índice" loading="lazy"></div><div class="device-slide"><img src="assets/added-a-mesa-captura-236831.webp" width="786" height="1536" alt="Navegação da semana 1" loading="lazy"></div><div class="device-slide"><img src="assets/added-a-mesa-captura-236833.webp" width="786" height="1536" alt="Resumo semanal e refeições" loading="lazy"></div><div class="device-slide"><img src="assets/added-a-mesa-captura-236835.webp" width="786" height="1536" alt="Lista de compras" loading="lazy"></div><div class="device-slide"><img src="assets/added-a-mesa-extra-236839.webp" width="786" height="1536" alt="Checklist de frios e laticínios" loading="lazy"></div><div class="device-slide"><img src="assets/added-a-mesa-extra-236827.webp" width="786" height="1536" alt="Semanas 3 e 4 e índice de receitas" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="added-a-mesa">À mesa — quatro semanas</h3><div class="project-type">Autoral · Site interativo · Design editorial</div><p class="project-desc">Caderno digital de planejamento culinário com 28 dias, 137 receitas pesquisáveis, navegação por semana e listas de compras interativas. O projeto reúne curadoria de cardápios, organização do conteúdo, direção visual e implementação web.</p><a class="project-cta" href="https://a-mesa-quatro-semanas.jblkdesign.chatgpt.site/#/semana/1">Abrir projeto ↗</a>  </div>
+  </article><article class="project-item reveal" aria-labelledby="case-cardapios-semanais"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:1055 / 1491"><div class="device-slide active"><img src="assets/cardapios-anonimos-03.webp" width="1055" height="1491" alt="Cardápios semanais ilustrados · imagem 1" loading="lazy"></div><div class="device-slide"><img src="assets/cardapios-anonimos-09.webp" width="1000" height="1500" alt="Cardápios semanais ilustrados · imagem 3" loading="lazy"></div><div class="device-slide"><img src="assets/cardapios-anonimos-14.webp" width="1000" height="1500" alt="Cardápios semanais ilustrados · imagem 4" loading="lazy"></div><div class="device-slide"><img src="assets/cardapios-anonimos-18.webp" width="1000" height="1500" alt="Cardápios semanais ilustrados · imagem 5" loading="lazy"></div><div class="device-slide"><img src="assets/cardapios-anonimos-26.webp" width="1055" height="1491" alt="Cardápios semanais ilustrados · imagem 7" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-cardapios-semanais">Cardápios semanais ilustrados</h3><div class="project-type">Autoral · Editorial · Gastronomia</div><p class="project-desc">Curadoria e planejamento de cardápios, com opções frias, congeláveis e quentes. Direção de arte de uma série de cartazes retrô inspirados em diferentes cozinhas.</p> </div></article><article class="project-item reveal" aria-labelledby="case-cardapio-especial"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:786 / 1536"><div class="device-slide active"><img src="assets/case-cardapio-especial-extra-236919.webp" width="786" height="1536" alt="Tela inicial e busca" loading="lazy"></div><div class="device-slide"><img src="assets/case-cardapio-especial-extra-236921.webp" width="786" height="1536" alt="Brunch com ovos beneditinos" loading="lazy"></div><div class="device-slide"><img src="assets/case-cardapio-especial-extra-236923.webp" width="786" height="1536" alt="Brunch com ovos mexidos" loading="lazy"></div><div class="device-slide"><img src="assets/case-cardapio-especial-extra-236927.webp" width="786" height="1536" alt="Baião de dois e carne de sol" loading="lazy"></div><div class="device-slide"><img src="assets/case-cardapio-especial-extra-236929.webp" width="786" height="1536" alt="Almôndegas suecas" loading="lazy"></div><div class="device-slide"><img src="assets/case-cardapio-especial-captura-236883.webp" width="786" height="1536" alt="Primeira versão · Capa" loading="lazy"></div><div class="device-slide"><img src="assets/case-cardapio-especial-captura-236887.webp" width="786" height="1536" alt="Primeira versão · Capítulo 01" loading="lazy"></div><div class="device-slide"><img src="assets/case-cardapio-especial-captura-236891.webp" width="786" height="1536" alt="Primeira versão · Capítulo 03" loading="lazy"></div><div class="device-slide"><img src="assets/case-cardapio-especial-captura-236893.webp" width="786" height="1536" alt="Primeira versão · Capítulo 04" loading="lazy"></div><div class="device-slide"><img src="assets/case-cardapio-especial-captura-236889.webp" width="786" height="1536" alt="Primeira versão · Detalhe da opção 01" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-cardapio-especial">Cardápio Especial</h3><div class="project-type">Autoral · Editorial · Gastronomia</div><p class="project-desc">A galeria começa pela versão atual do cardápio e inclui telas da primeira versão. Curadoria e organização de 60 combinações de café da manhã, brunch, almoço e jantar. Nova edição diagramada como um menu de alta gastronomia.</p> <a class="project-cta" href="cardapio-especial.html">Abrir caderno ilustrado ↗</a></div></article><article class="project-item reveal" aria-labelledby="case-receitas-emocionais"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:786 / 1536"><div class="device-slide active"><img src="assets/case-receitas-emocionais-captura-236895.webp" width="786" height="1536" alt="Capa" loading="lazy"></div><div class="device-slide"><img src="assets/case-receitas-emocionais-captura-236899.webp" width="786" height="1536" alt="Capítulo 01" loading="lazy"></div><div class="device-slide"><img src="assets/case-receitas-emocionais-captura-236907.webp" width="786" height="1536" alt="Noite introspectiva com vinho" loading="lazy"></div><div class="device-slide"><img src="assets/case-receitas-emocionais-captura-236909.webp" width="786" height="1536" alt="Outono no peito" loading="lazy"></div><div class="device-slide"><img src="assets/case-receitas-emocionais-captura-236915.webp" width="786" height="1536" alt="Antes de dormir" loading="lazy"></div><div class="device-slide"><img src="assets/case-receitas-emocionais-extra-236897.webp" width="786" height="1536" alt="Capítulos do caderno" loading="lazy"></div><div class="device-slide"><img src="assets/case-receitas-emocionais-extra-236903.webp" width="786" height="1536" alt="Amanhecer solitário em Florença" loading="lazy"></div><div class="device-slide"><img src="assets/case-receitas-emocionais-extra-236911.webp" width="786" height="1536" alt="Coragem suave" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-receitas-emocionais">Receitas Emocionais para Dias com Tédio</h3><div class="project-type">Autoral · Escrita · Gastronomia</div><p class="project-desc">Concepção, curadoria, escrita e design editorial de sete receitas inspiradas por estados de espírito, situações do cotidiano e trilhas sonoras. A nova diagramação adota uma estética gótica com referências ao rock.</p> <a class="project-cta" href="receitas-emocionais.html">Abrir caderno ilustrado ↗</a></div></article><article class="project-item reveal" aria-labelledby="case-receitas-light"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:990 / 1400"><div class="device-slide active"><img src="assets/receitas-light-01.webp" width="990" height="1400" alt="Receitas Light (ou Nem Tanto) · imagem 1" loading="lazy"></div><div class="device-slide"><img src="assets/receitas-light-24.webp" width="1400" height="990" alt="Receitas Light (ou Nem Tanto) · imagem 3" loading="lazy"></div><div class="device-slide"><img src="assets/receitas-light-32.webp" width="1400" height="990" alt="Receitas Light (ou Nem Tanto) · imagem 4" loading="lazy"></div><div class="device-slide"><img src="assets/receitas-light-47.webp" width="1400" height="990" alt="Receitas Light (ou Nem Tanto) · imagem 5" loading="lazy"></div><div class="device-slide"><img src="assets/receitas-light-79.webp" width="1400" height="990" alt="Receitas Light (ou Nem Tanto) · imagem 7" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-receitas-light">Receitas Light (ou Nem Tanto)</h3><div class="project-type">Autoral · Design editorial</div><p class="project-desc">Projeto editorial de 2018 para organizar receitas e facilitar a consulta. O acervo inclui o PDF e o arquivo editável de diagramação.</p> </div></article></section><section class="project-topic" id="tema-bem-estar" aria-labelledby="tema-bem-estar-titulo"><h3 id="tema-bem-estar-titulo" class="project-topic-title">Saúde, bem-estar e planejamento</h3><article class="project-item reverse reveal" aria-labelledby="proj2-title">
+    <div>
+
+      <h3 class="project-title" id="proj2-title">Neuro Lens <span class="project-badge badge-free">Gratuito</span></h3>
+      <div class="project-type">Ferramenta educacional · TEA e TDAH · Acessibilidade</div>
+      <p class="project-desc">Triagem educacional para reconhecer padrões de TEA e TDAH em quatro perspectivas: autopercepção, olhar do parceiro, avaliação combinada e versão para pais de crianças de 4 a 12 anos. Baseado nos critérios do DSM-5. Gratuito, sem cadastro e sem coleta de dados.</p>
+      <div class="project-tags"><span class="tag">TEA / TDAH</span><span class="tag">DSM-5</span><span class="tag">Acessibilidade</span><span class="tag">Saúde mental</span><span class="tag">Sem cadastro</span></div>
+      <a href="https://jessblock.github.io/neurolens/" target="_blank" rel="noopener noreferrer" class="project-cta">Acessar app ↗</a>
+
+    </div>
+    <div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" id="neurolens-slides" style="--image-ratio:720 / 1810">
+              <div class="device-slide active"><img src="assets/neurolens_1.webp" alt="Neuro Lens Gratuito · imagem 1" loading="lazy" width="720" height="1810"></div>
+              <div class="device-slide"><img src="assets/neurolens_2.webp" alt="Neuro Lens Gratuito · imagem 2" loading="lazy" width="720" height="1803"></div>
+              <div class="device-slide"><img src="assets/neurolens_3.webp" alt="Neuro Lens Gratuito · imagem 3" loading="lazy" width="720" height="2394"></div>
+              <div class="device-slide"><img src="assets/neurolens_4.webp" alt="Neuro Lens Gratuito · imagem 4" loading="lazy" width="720" height="2371"></div>
+            </div>
+          </div></div></article><article class="project-item reveal" aria-labelledby="proj5-title">
+    <div>
+
+      <h3 class="project-title" id="proj5-title">BIA <span class="project-badge badge-demo">Demo</span></h3>
+      <div class="project-type">Saúde mental · Neurodivergência · Família</div>
+      <p class="project-desc">App de acompanhamento terapêutico para adolescentes neurodivergentes e suas famílias: diário emocional, bateria social com cronômetro de interação, registro de crise, exercícios guiados de regulação, conquistas e painel compartilhado com a família e AT. Desenvolvido com foco em TDAH e TEA.</p>
+      <div class="project-tags"><span class="tag">Saúde mental</span><span class="tag">TEA / TDAH</span><span class="tag">Família</span><span class="tag">Regulação emocional</span><span class="tag">PWA</span></div>
+      <a href="https://biaintervapp-7vo5jplf.manus.space/" target="_blank" rel="noopener noreferrer" class="project-cta">Acessar app ↗</a>
+
+    </div>
+    <div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" id="bia-slides" style="--image-ratio:1442 / 3202">
+              <div class="device-slide active"><img src="assets/bia_1.webp" alt="BIA Demo · imagem 1" loading="lazy" width="1442" height="3202"></div>
+              <div class="device-slide"><img src="assets/bia_2.webp" alt="BIA Demo · imagem 2" loading="lazy" width="1442" height="3202"></div>
+              <div class="device-slide"><img src="assets/bia_3.webp" alt="BIA Demo · imagem 3" loading="lazy" width="1442" height="3202"></div>
+              <div class="device-slide"><img src="assets/bia_4.webp" alt="BIA Demo · imagem 4" loading="lazy" width="1442" height="3973"></div>
+              <div class="device-slide"><img src="assets/bia_5.webp" alt="BIA Demo · imagem 5" loading="lazy" width="1442" height="3202"></div>
+            </div>
+          </div></div></article><article class="project-item reveal" aria-labelledby="case-metas-10"><div class="project-mockup"><div class="mockup-wrap flat-wrap"><div class="device-slides flat-gallery" style="--image-ratio:786 / 1536"><div class="device-slide active"><img src="assets/metas-smart-visao-geral.webp" width="786" height="1536" alt="Visão geral de planejamento com dados pessoais ocultos" loading="lazy"></div></div></div></div><div><h3 class="project-title" id="case-metas-10">Metas de 10 Anos</h3><div class="project-type">Autoral · Web · Planejamento</div><p class="project-desc">Estruturação de um projeto digital de planejamento de longo prazo, com organização de metas e direção visual para apresentar fases e prioridades.</p></div></article><article class="project-item reveal" aria-labelledby="added-30"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-added-30.webp" width="1000" height="1000" alt="Capa editorial de Entrelinhas" loading="lazy"></div><div><h3 class="project-title" id="added-30">Entrelinhas</h3><div class="project-type">Produto digital</div><p class="project-desc">Diário digital desenvolvido em HTML.</p></div></article><article class="project-item reveal" aria-labelledby="case-material-psicologia"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-material-psicologia.webp" width="1000" height="1000" alt="Capa editorial de Pesquisa sobre saúde mental e tecnologia" loading="lazy"></div><div><h3 class="project-title" id="case-material-psicologia">Pesquisa sobre saúde mental e tecnologia</h3><div class="project-type">Autoral · Pesquisa de mercado</div><p class="project-desc">Mapeamento de soluções digitais que cruzam psicologia, saúde mental e IA e organização dos achados em um estudo.</p></div></article><article class="project-item reveal" aria-labelledby="case-agenda-digital"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-agenda-digital.webp" width="1000" height="1000" alt="Capa editorial de Agenda digital de acompanhamento" loading="lazy"></div><div><h3 class="project-title" id="case-agenda-digital">Agenda digital de acompanhamento</h3><div class="project-type">Autoral · Site offline · Organização</div><p class="project-desc">Criação de uma agenda responsiva para organizar compromissos e tarefas de acompanhamento.</p></div></article><article class="project-item reveal" aria-labelledby="case-questionario-qualidade"><div class="project-mockup"><img class="project-editorial-cover" src="assets/capa-tarot-case-questionario-qualidade.webp" width="1000" height="1000" alt="Capa editorial de Questionário digital de funcionamento e qualidade de vida" loading="lazy"></div><div><h3 class="project-title" id="case-questionario-qualidade">Questionário digital de funcionamento e qualidade de vida</h3><div class="project-type">Autoral · Questionário · Web</div><p class="project-desc">Estruturação de uma experiência digital para organizar respostas sobre funcionamento e qualidade de vida.</p></div></article></section>
+  </div>
+</section>
+
+<!-- EXPERIÊNCIA -->
+<section id="experiencia" aria-labelledby="exp-title">
+  <div class="section-label" aria-hidden="true">03 / Experiência</div>
+  <h2 class="section-title" id="exp-title">Trajetória em <em>produto</em><br>e design.</h2>
+  <div class="exp-list">
+
+    <div class="exp-item reveal">
+      <div class="exp-meta"><span class="exp-period">Ago 2026 · Atual</span><span class="exp-company">Instituto de inovação</span></div>
+      <div><h3 class="exp-role">Analista de Marketing II</h3>
+      <p class="exp-subtitle">Desenvolvimento de Novos Produtos · Mercado</p>
+      <ul class="exp-bullets">
+        <li>Pesquisa de mercado, análise de concorrência, benchmark, definição de público e estruturação de propostas de valor.</li>
+        <li>Concepção e validação de ofertas, planejamento de go-to-market e articulação com Negócio, UX, áreas técnicas, Vendas e atendimento.</li>
+        <li>Produção de materiais de lançamento e adoção: apresentações executivas, roteiros, manuais, guias comerciais, FAQs, treinamentos e avaliações.</li>
+        <li>Acompanhamento de cronogramas, indicadores, dependências e marcos. Coordenação de repasses e comunicação de mudanças para públicos internos e clientes.</li>
+      </ul></div>
+    </div>
+    <!-- J.BLK Studio -->
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-period">2026 · Atual</span>
+        <span class="exp-company">J.BLK Studio</span>
+      </div>
+      <div>
+        <h3 class="exp-role">Designer Gráfica &amp; Product Owner</h3>
+        <p class="exp-subtitle">Concepção e desenvolvimento de produtos digitais, marcas, estudos de negócio e publicações</p>
+        <ul class="exp-bullets">
+          <li>Concepção de projetos autorais do J.BLK Studio, da pesquisa e a concepção até o protótipo, a identidade, o site e os materiais de apresentação. O acervo reúne ferramentas digitais, narrativas interativas, estudos de interiores, publicações e séries de ilustração.</li>
+          <li>Estruturação de ofertas, escrita e design editorial, desenvolvimento de páginas, automações, documentação e testes de uso em projetos próprios e colaborações.</li>
+          <li>Concepção, design, produto e desenvolvimento de projetos proprietários: <strong>Neuro Lens</strong> (triagem TEA/TDAH, gratuito), <strong>Convergir</strong> (narrativa interativa, demo gratuita), <strong>Oráculo Pessoal</strong> (entretenimento, gratuito), <strong>BIA</strong> (acompanhamento terapêutico para adolescentes neurodivergentes, demo) e <strong>Operação Horizonte</strong> (gamificação de rotina para crianças neurodivergentes, demo)</li>
+          <li>Design e produto com foco em tecnologia acessível, saúde mental, neurodivergência e impacto social</li>
+        </ul>
+        <div class="exp-chips">
+          <span class="exp-chip">Produtos digitais e IA</span>
+          <span class="exp-chip">Construção de produto</span>
+          <span class="exp-chip">ABA / TEA / TDAH</span>
+          <span class="exp-chip">Saúde mental</span>
+          <span class="exp-chip">Wearable tech</span>
+          <span class="exp-chip">UX Writing</span>
+          <span class="exp-chip">Builder</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-period">Mar 2024 - Abr 2026</span>
+        <span class="exp-company">Consultoria em agronegócio</span>
+      </div>
+      <div>
+        <h3 class="exp-role">Designer Gráfica / Strategic Communication</h3>
+        <p class="exp-subtitle">Comunicação visual estratégica para o agronegócio brasileiro</p>
+
+        <ul class="exp-bullets">
+          <li>Design e narrativa visual de apresentações executivas para empresas do agronegócio.</li>
+          <li>Comunicação visual estratégica end-to-end para consultoria especializada em mercado agrícola</li>
+          <li>Tradução de complexidade técnica em narrativas visuais impactantes para reuniões C-level</li>
+        </ul>
+        <div class="exp-chips">
+          <span class="exp-chip">Apresentações executivas</span>
+          <span class="exp-chip">Design Gráfico</span>
+          <span class="exp-chip">Diagramação</span>
+          <span class="exp-chip">PowerPoint</span>
+          <span class="exp-chip">Storytelling C-level</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dialog -->
+    <div class="exp-item reveal" id="exp-dialog">
+      <div class="exp-meta">
+        <span class="exp-period">Mai 2022 - Fev 2024</span>
+        <span class="exp-company">Dialog · Comunicação Interna</span>
+      </div>
+      <div>
+        <h3 class="exp-role">Coordenadora da Área de Produtos Digitais &amp; Product Owner</h3>
+        <p class="exp-subtitle">Liderança de equipe + execução operacional simultâneas</p>
+        <div class="exp-clients" aria-label="Empresas enterprise atendidas pela plataforma Dialog">
+          <span class="exp-client mobile-hidden">Simpar</span>
+          <span class="exp-client mobile-hidden">Marilan</span>
+          <span class="exp-client">Espaçolaser</span>
+          <span class="exp-client mobile-hidden">Rihappy</span>
+          <span class="exp-client">Amaggi</span>
+          <span class="exp-client mobile-hidden">Arteris</span>
+          <span class="exp-client mobile-hidden">Clamed</span>
+          <span class="exp-client mobile-hidden">Leão</span>
+          <span class="exp-client mobile-hidden">ArcelorMittal</span>
+          <span class="exp-client mobile-hidden">Havan</span>
+          <span class="exp-client mobile-hidden">SBT</span>
+          <span class="exp-client">Carrefour</span>
+          <span class="exp-client mobile-hidden">Coplacana</span>
+          <span class="exp-client mobile-hidden">Nutrien</span>
+          <span class="exp-client mobile-hidden">Omie</span>
+          <span class="exp-client mobile-hidden">Localiza</span>
+          <span class="exp-client mobile-hidden">JHSF</span>
+          <span class="exp-client mobile-hidden">Avon</span>
+          <span class="exp-client mobile-hidden">Atlântica</span>
+          <span class="exp-client mobile-hidden">Saint-Gobain</span>
+          <span class="exp-client mobile-hidden">Ecogen</span>
+          <span class="exp-client mobile-hidden">Sextante</span>
+          <span class="exp-client mobile-hidden">Ultracargo</span>
+          <span class="exp-client mobile-hidden">Fortlev</span>
+        </div>
+        <ul class="exp-bullets">
+          <li><strong>Liderava a área</strong> e ao mesmo tempo atuava como PO, responsável pelo estratégico e pelo operacional do produto em paralelo, sem separação de funções</li>
+          <li>Gestão direta de squads multidisciplinares (dev, UX/UI, P&amp;D, QA): rituais ágeis, sprint planning, priorização e alinhamento entre áreas técnicas e de negócio</li>
+          <li>Backlog reduzido de <strong>264 para menos de 40 tarefas</strong> em menos de 12 meses, com 85% de aumento de capacidade de entrega</li>
+          <li>Plataforma SaaS B2B com IA para <strong>+27 empresas enterprise</strong>: roadmap, discovery, PRD e acompanhamento de delivery de ponta a ponta</li>
+          <li>Implementação end-to-end de 3 módulos do ecossistema Dialog AI, incluindo Power AI Creator (diferencial comercial n.1) e Índice de Engajamento com 70% de adoção em 3 meses</li>
+          <li>Resultado: economia de <strong>1 a 3h semanais para 44%</strong> dos colaboradores e +40% de produtividade nas equipes clientes</li>
+        </ul>
+        <div class="exp-chips">
+          <span class="exp-chip">Product Owner</span>
+          <span class="exp-chip">Coordenação de área</span>
+          <span class="exp-chip">SaaS B2B</span>
+          <span class="exp-chip">Agile / Scrum</span>
+          <span class="exp-chip">OKRs</span>
+          <span class="exp-chip">Discovery</span>
+          <span class="exp-chip">Roadmap</span>
+          <span class="exp-chip">PRD</span>
+          <span class="exp-chip">IA aplicada</span>
+          <span class="exp-chip">Gestão de squads</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kanttum -->
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-period">Mai 2020 - Ago 2021</span>
+        <span class="exp-company">Kanttum</span>
+      </div>
+      <div>
+        <h3 class="exp-role">Líder de Conteúdo / Product Education</h3>
+        <p class="exp-subtitle">Liderança de time de conteúdo educacional corporativo</p>
+        <div class="exp-clients" aria-label="Empresas atendidas na Kanttum">
+          <span class="exp-client">Tribanco</span>
+          <span class="exp-client">Martins</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Liderança de time de conteúdo educacional corporativo, padrões pedagógicos e governança de templates</li>
+          <li>+30% de eficiência da equipe com frameworks de qualidade e processos otimizados</li>
+          <li>Gestão de LMS corporativo e estratégias de educação em escala para grupo Tribanco/Martins</li>
+        </ul>
+        <div class="exp-chips">
+          <span class="exp-chip">Liderança de time</span>
+          <span class="exp-chip">Product Education</span>
+          <span class="exp-chip">LMS corporativo</span>
+          <span class="exp-chip">Design Instrucional</span>
+          <span class="exp-chip">Governança de templates</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PrismaFS -->
+    <div class="exp-item reveal" id="exp-prismafs">
+      <div class="exp-meta">
+        <span class="exp-period">Fev 2011 - Ago 2019</span>
+        <span class="exp-company">PrismaFS</span>
+      </div>
+      <div>
+        <h3 class="exp-role">Designer Instrucional / Corporate Education</h3>
+        <p class="exp-subtitle">Roteiros e padrões educacionais para grandes empresas</p>
+        <div class="exp-clients" aria-label="Empresas atendidas na PrismaFS">
+
+          <span class="exp-client mobile-hidden">Banco Safra</span>
+          <span class="exp-client">Bayer</span>
+          <span class="exp-client mobile-hidden">BRF</span>
+          <span class="exp-client mobile-hidden">Clariant</span>
+          <span class="exp-client mobile-hidden">DEMB</span>
+          <span class="exp-client mobile-hidden">Electrolux</span>
+          <span class="exp-client mobile-hidden">Hypermarcas</span>
+          <span class="exp-client">Itaú-Unibanco</span>
+          <span class="exp-client mobile-hidden">Martins</span>
+          <span class="exp-client">Nestlé</span>
+          <span class="exp-client mobile-hidden">Pernambucanas</span>
+          <span class="exp-client mobile-hidden">Sabesp</span>
+          <span class="exp-client mobile-hidden">Sicredi</span>
+          <span class="exp-client mobile-hidden">SKY</span>
+          <span class="exp-client mobile-hidden">Tribanco</span>
+
+          <span class="exp-client mobile-hidden">Unipar Carbocloro</span>
+          <span class="exp-client mobile-hidden">Viacredi</span>
+          <span class="exp-client mobile-hidden">Zurich</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>+360 roteiros educacionais para 12 grandes empresas (Itaú-Unibanco, Nestlé, Bayer, Electrolux, Clariant…)</li>
+          <li>Taxa de conclusão de <strong>80 a 85%</strong> e aprovação na primeira revisão de <strong>75 a 80%</strong></li>
+          <li>Onboarding 100% digital da Bayer, <strong>vencedor do Prêmio Learning and Performance Brasil 2018/2019</strong></li>
+          <li>Definição do padrão corporativo de roteiros instrucionais adotado por toda a empresa</li>
+        </ul>
+        <div class="exp-chips">
+          <span class="exp-chip">Design Instrucional</span>
+          <span class="exp-chip">Roteiros educacionais</span>
+          <span class="exp-chip">EdTech</span>
+          <span class="exp-chip">Storytelling pedagógico</span>
+          <span class="exp-chip">Onboarding digital</span>
+          <span class="exp-chip">Prêmio L&amp;P 2018/19</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-grid">
+    <div>
+      <div class="section-label" style="margin-bottom:1.5rem;" aria-hidden="true">Certificações</div>
+      <div class="cert-row reveal"><span class="cert-name">Product Manager — Awari</span><span class="cert-year">2023</span></div>
+      <div class="cert-row reveal"><span class="cert-name">Scrum Foundation Professional — CertiProf</span><span class="cert-year">2020</span></div>
+      <div class="cert-row reveal"><span class="cert-name">Hello Design Thinking — IDEO U</span><span class="cert-year">2020</span></div>
+      <div class="cert-row reveal"><span class="cert-name">Marketing in a Digital World — U. Illinois</span><span class="cert-year">2020</span></div>
+      <div class="cert-row reveal"><span class="cert-name">UX Writing — EBAC</span><span class="cert-year">2021</span></div>
+    </div>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <span>© 2026 Jessica Block</span>
+  <span>Uberlândia, MG · Brasil</span>
+  <span>Design · Produto · Tecnologia</span>
+
+</footer>
+
+<div class="sticky-bar" role="navigation" aria-label="Links rápidos">
+  <a href="mailto:jessicatwblock@gmail.com" aria-label="E-mail">
+    <svg class="bar-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+    <span class="bar-label">E-mail</span>
+  </a>
+  <a href="https://wa.me/5534999441161" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <svg class="bar-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
+    <span class="bar-label">WhatsApp</span>
+  </a>
+  <a href="https://linkedin.com/in/jessicatwblock" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+    <svg class="bar-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    <span class="bar-label">LinkedIn</span>
+  </a>
+  <a href="#projetos" aria-label="Projetos">
+    <svg class="bar-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <span class="bar-label">Projetos</span>
+  </a>
+</div>
+
+<script>
+// REVEAL ON SCROLL
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.style.transitionDelay=(i%4)*60+'ms';obs.observe(el);
+});
+
+// SLIDE AUTOPLAY — percorre slides automaticamente nos cards com múltiplos slides
+(function(){
+  // Autoplay em todos os cards com múltiplos slides
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  for (const gallery of document.querySelectorAll('.project-item .device-slides')) {
+    const slides = [...gallery.querySelectorAll('.device-slide')];
+    if (slides.length < 2) continue;
+    const wrap = gallery.closest('.mockup-wrap');
+    const name = gallery.closest('article').querySelector('h3').textContent.trim();
+    const nav = document.createElement('div');
+    nav.className = 'gallery-nav';
+    nav.setAttribute('role', 'group');
+    nav.setAttribute('aria-label', 'Imagens de ' + name);
+    nav.innerHTML = '<button type="button" aria-label="Imagem anterior">←</button><button type="button" class="gallery-play"></button><output></output><button type="button" aria-label="Próxima imagem">→</button>';
+    wrap.append(nav);
+    const [previous, play, next] = nav.querySelectorAll('button');
+    const count = nav.querySelector('output');
+    let active = 0, timer, visible = !('IntersectionObserver' in window);
+    let autoplay = !reduced.matches;
+    function select(index) {
+      active = (index + slides.length) % slides.length;
+      if (gallery.classList.contains('flat-gallery')) {
+        const image = slides[active].querySelector('img');
+        gallery.style.setProperty('--image-ratio', image.getAttribute('width') + ' / ' + image.getAttribute('height'));
+      }
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === active);
+        slide.setAttribute('aria-hidden', String(i !== active));
+      });
+      count.textContent = (active + 1) + ' / ' + slides.length;
+    }
+    function syncAutoplay() {
+      clearInterval(timer);
+      play.textContent = autoplay ? 'Pausar' : 'Retomar';
+      play.setAttribute('aria-label', autoplay ? 'Pausar troca automática' : 'Retomar troca automática');
+      count.setAttribute('aria-live', autoplay ? 'off' : 'polite');
+      if (autoplay && visible && !document.hidden) timer = setInterval(() => select(active + 1), 5000);
+    }
+    function manual(step) {
+      autoplay = false;
+      syncAutoplay();
+      select(active + step);
+    }
+    previous.onclick = () => manual(-1);
+    next.onclick = () => manual(1);
+    play.onclick = () => { autoplay = !autoplay; syncAutoplay(); };
+    document.addEventListener('visibilitychange', syncAutoplay);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        syncAutoplay();
+      }).observe(wrap);
+    }
+    syncAutoplay();
+    select(0);
+  }
+})();
+</script>
+</body>
+</html>
+
